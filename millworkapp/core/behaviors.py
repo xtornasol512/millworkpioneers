@@ -11,3 +11,4 @@ class Timestampable(models.Model):
 
     class Meta:
         abstract = True
+
