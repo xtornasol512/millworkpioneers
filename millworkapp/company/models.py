@@ -9,6 +9,7 @@ class Company(Timestampable, models.Model):
     title = models.CharField("Title", max_length=255, default="")
     phone = models.CharField("Phone", max_length=50, blank=True, default="")
     fax = models.CharField("Fax", max_length=255, blank=True, default="")
+    email = models.EmailField("Email", max_length=255, blank=True)
     headline = models.CharField("Headline", max_length=255, blank=True, default="")
     address = models.CharField("Address", max_length=255, blank=True, default="")
     facebook = models.CharField("Facebook", max_length=255, blank=True, default="")
