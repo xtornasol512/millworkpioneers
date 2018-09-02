@@ -1,0 +1,16 @@
+# Python Stuffs
+*.pyc
+*__pycache__
+*.pyo
+
+# Temp files and dirs
+*~
+.vagrant/
+.env
+config/
+tmp/
+static-site/
+
+
+# PHP and python is not posible!
+*.php

@@ -1,0 +1,14 @@
+# Main Requirements
+
+# Django Apps
+Django==1.11.15
+
+# Heroku apps
+
+
+# Mail Apps
+
+# S3
+
+# ImageSupport
+
