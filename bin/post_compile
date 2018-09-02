@@ -5,6 +5,6 @@ echo "=> Performing database migrations..."
 python millworkapp/manage.py migrate --noinput
 
 echo "=> Load data..."
-python manage.py loaddata fixtures/initial_data.json
+python millworkapp/manage.py loaddata fixtures/initial_data.json
 
 echo "=> END Post compile scripts"
