@@ -12,5 +12,6 @@ tmp/
 static-site/
 
 
-# PHP and python is not posible!
+# PHP and python is not posible! sqlite either!
 *.php
+*.sqlite3
