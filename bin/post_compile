@@ -1,2 +1,7 @@
 #!/bin/bash
 # Post compile script
+
+echo "=> Performing database migrations..."
+python millworkapp/manage.py migrate --noinput
+
+echo "=> END Post compile scripts"
