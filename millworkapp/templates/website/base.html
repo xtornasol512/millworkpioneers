@@ -26,9 +26,9 @@
   {% endblock cssblock %}
 </head>
 <body>
-
   {% include "misc/header.html" %}
   {% include "misc/aside.html" %}
+
   {% block header %}
   {% endblock header %}
 
@@ -36,9 +36,9 @@
   {% endblock content %}
 
   {% include "misc/footer.html" %}
+
   {% block footer %}
   {% endblock footer %}
-
 
   <!-- Scripts -->
   <script type="text/javascript" src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>

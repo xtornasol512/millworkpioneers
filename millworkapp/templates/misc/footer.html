@@ -1,4 +1,5 @@
 <!-- Footer -->
+{% load static %}
 <footer class="bg1">
   <div class="container p-t-40 p-b-70">
     <div class="row">
@@ -39,107 +40,46 @@
       <div class="col-sm-6 col-md-4 p-t-50">
         <!-- - -->
         <h4 class="txt13 m-b-33">
-          Latest twitter
+          Latest news
         </h4>
-
-        <div class="m-b-25">
-          <span class="fs-13 color2 m-r-5">
-            <i class="fa fa-twitter" aria-hidden="true"></i>
-          </span>
-          <a href="#" class="txt15">
-            @colorlib
-          </a>
-
-          <p class="txt14 m-b-18">
-            Activello is a good option. It has a slider built into that displays the featured image in the slider.
+        {#T ODO adjust this for #}
+        {% for item in "ab" %}
+          <div class="m-b-25">
+            <span class="fs-13 color2 m-r-5">
+              <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+            </span>
             <a href="#" class="txt15">
-              https://buff.ly/2zaSfAQ
+              New title post
             </a>
-          </p>
 
-          <span class="txt16">
-            21 Dec 2017
-          </span>
-        </div>
+            <p class="txt14 m-b-18">
+              Some interesting new on blog post!
+              <a href="https://www.linkedin.com/company/millwork-pioneers-inc/" class="txt15">
+                https://www.linkedin.com/company/millwork-pioneers-inc/
+              </a>
+            </p>
 
-        <div>
-          <span class="fs-13 color2 m-r-5">
-            <i class="fa fa-twitter" aria-hidden="true"></i>
-          </span>
-          <a href="#" class="txt15">
-            @colorlib
-          </a>
-
-          <p class="txt14 m-b-18">
-            Activello is a good option. It has a slider built into that displays
-            <a href="#" class="txt15">
-              https://buff.ly/2zaSfAQ
-            </a>
-          </p>
-
-          <span class="txt16">
-            21 Dec 2017
-          </span>
-        </div>
+            <span class="txt16">
+              21 Dec 2017
+            </span>
+          </div>
+        {% endfor %}
       </div>
 
       <div class="col-sm-6 col-md-4 p-t-50">
-        <!-- - -->
+        <!-- Gallery Footer  -->
         <h4 class="txt13 m-b-38">
           Gallery
         </h4>
-
         <!-- Gallery footer -->
         <div class="wrap-gallery-footer flex-w">
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-04.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-08.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
-          </a>
-
-          <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg" data-lightbox="gallery-footer">
-            <img src="images/photo-gallery-thumb-12.jpg" alt="GALLERY">
-          </a>
+          {# DEFINE WELL PHOTOS here #}
+          {% for item in "abcdfgh" %}
+            <a class="item-gallery-footer wrap-pic-w" href="{% static "images/photo-gallery-01.jpg" %}" data-lightbox="gallery-footer">
+              <img src="{% static "images/photo-gallery-thumb-01.jpg" %}" alt="GALLERY">
+            </a>
+          {% endfor %}
         </div>
-
       </div>
     </div>
   </div>
