@@ -38,8 +38,17 @@ AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
 AWS_LOCATION = 'media'
 
+# AWS SES
+AWS_SES_ACCESS_KEY_ID = os.environ['AWS_SES_ACCESS_KEY_ID']
+AWS_SES_SECRET_ACCESS_KEY = os.environ['AWS_SES_SECRET_ACCESS_KEY']
+AWS_SES_REGION = 'us-west-2'
+
 DEFAULT_FILE_STORAGE = 'millworkapp.storage_backends.MediaStorage'
 
+if not DEBUG:
+    EMAIL_BACKEND = 'django_amazon_ses.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Application definition
 
 INSTALLED_APPS = [
