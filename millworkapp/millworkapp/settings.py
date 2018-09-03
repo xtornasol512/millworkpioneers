@@ -28,11 +28,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = os.environ['DEBUG_STATE']
 ALLOWED_HOSTS = []
 
+# Compact Django Jet Menu
+JET_SIDE_MENU_COMPACT = True
+
 # Application definition
 
 INSTALLED_APPS = [
+    'jet',
+
     'core.apps.CoreConfig',
     'company.apps.CompanyConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

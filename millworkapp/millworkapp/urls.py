@@ -18,6 +18,7 @@ from django.contrib import admin
 from .views import home
 
 urlpatterns = [
+    url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     url(r'^admin/', admin.site.urls),
     url(r'^', include('website.urls')),
     url(r'^$', home, name='home'),
