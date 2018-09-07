@@ -30,10 +30,10 @@ class ContactForm(forms.Form):
             name = self.cleaned_data["name"]
             email = self.cleaned_data["email"]
             message = self.cleaned_data["message"]
-            from_email = "Hello Millworkpioneers<hello@millworkpioneers.com>"
+            from_email = "hello@millworkpioneers.com"
             to_email = "xtornasol512@gmail.com"
 
-            send_mail(subject, message, from_email, [to_email])
+            send_mail(subject, message, from_email, [to_email], fail_silently=False)
 
         except Exception as e:
             logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))

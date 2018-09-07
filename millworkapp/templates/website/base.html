@@ -36,6 +36,16 @@
   {% endblock cssblock %}
 </head>
 <body>
+  {# Messaging framework #}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert {% if message.tags %}alert-{{message.tags}}{% else %}alert-warning{% endif %} alert-dismissible" role="alert" style="z-index:9999; position:fixed;width:100%;margin-top:6em;">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>{{ message }}</strong>
+      </div>
+    {% endfor %}
+  {% endif %}
+  {# End Messaging framework #}
   {% include "misc/header.html" %}
   {% include "misc/aside.html" %}
 
