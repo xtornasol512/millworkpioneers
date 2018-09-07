@@ -16,7 +16,7 @@ class ContactFormView(View):
         if form.is_valid():
             form.send_mail()
             messages.success(request, "Succesful send email!")
-            return redirect('home')
+            return redirect('/?success=true')
 
         else:
             messages.success(request, "We found an error on the form, please fill up again and resend it")
