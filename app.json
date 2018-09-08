@@ -39,6 +39,15 @@
     },
     "HEROKU_APP_NAME": {
       "required": true
+    },
+    "EMAIL_USE_TLS": {
+      "required": true
+    },
+    "WORKING_EMAIL": {
+      "required": true
+    },
+    "ADMIN_EMAIL": {
+      "required": true
     }
   },
   "formation": {
