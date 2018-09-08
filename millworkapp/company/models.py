@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.utils import timezone
 from django.contrib.postgres.fields import JSONField
@@ -48,10 +49,13 @@ class Client(Timestampable, models.Model):
 class Quote(Timestampable, models.Model):
     ''' Quote model '''
 
-    company = models.CharField("Compnay name", max_length=255, default="")
+    name = models.CharField("Lead name", max_length=255)
+    email = models.EmailField("Email", max_length=255, blank=True)
+    phone = models.CharField("Phone", max_length=50, blank=True, default="")
+    company = models.CharField("Company name", max_length=255, default="")
     project = models.CharField("Project name", max_length=255, blank=True, default="")
     bid_due = models.CharField("Bid Due", max_length=255, blank=True, default="")
-    start_date = models.DateTimeField("Estimated start date", default=timezone.now)
+    start_date = models.DateField("Estimated start date", default=datetime.today)
     prevailing_wage = models.CharField("Prevailing wage", max_length=255, blank=True, default="")
 
     class Meta:
@@ -61,4 +65,9 @@ class Quote(Timestampable, models.Model):
 
     def __str__(self):
         ''' Display name to object '''
-        return self.project
+        return self.name
+
+    def clean_start_date(self, value):
+        ''' Custom validate start date field '''
+        print("[custom validation field ] Value: {}".format(value))
+
