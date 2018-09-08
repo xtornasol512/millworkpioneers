@@ -18,7 +18,7 @@ class ContactFormView(View):
         if form.is_valid():
             form.send_mail()
             messages.success(request, "Succesful send email!")
-            return redirect('/?success=true')
+            return redirect('home')
 
         else:
             messages.success(request, "We found an error on the form, please fill up again and resend it")
@@ -37,7 +37,7 @@ class AskQuoteFormView(View):
         if form.is_valid():
             quote = form.save()
             messages.success(request, "Succesful ask quote!")
-            return redirect('/?success=true')
+            return redirect('home')
         else:
             logger.error("[AshQuote ERROR form]: {}".format(form.errors))
             messages.error(request, "We found some errors on the form, please fill up again and resend it")
@@ -54,7 +54,7 @@ class AskMailFormView(View):
         if form.is_valid():
             form.send_mail()
             messages.success(request, "Succesful suscribed!")
-            return redirect('/?success=true')
+            return redirect('home')
         else:
             logger.error("[AshQuote ERROR form]: {}".format(form.errors))
             messages.error(request, "Sorry wrong email, please try again")
