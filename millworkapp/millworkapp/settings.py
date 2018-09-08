@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import ast
 import django_heroku
 
 
@@ -25,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SET By django heroku
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ['DEBUG_STATE']
+DEBUG = ast.literal_eval(os.environ['DEBUG_STATE'])
 ALLOWED_HOSTS = []
 
 # Compact Django Jet Menu
@@ -42,6 +43,10 @@ AWS_LOCATION = 'media'
 AWS_SES_ACCESS_KEY_ID = os.environ['AWS_SES_ACCESS_KEY_ID']
 AWS_SES_SECRET_ACCESS_KEY = os.environ['AWS_SES_SECRET_ACCESS_KEY']
 AWS_SES_REGION = 'us-west-2'
+
+EMAIL_USE_TLS = ast.literal_eval(os.environ['EMAIL_USE_TLS'])
+WORKING_EMAIL = os.environ['WORKING_EMAIL']
+ADMIN_EMAIL = os.environ['ADMIN_EMAIL']
 
 DEFAULT_FILE_STORAGE = 'millworkapp.storage_backends.MediaStorage'
 
@@ -126,6 +131,8 @@ DATABASES = {}
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
+
+DATE_INPUT_FORMATS = ('%d/%m/%Y', )
 
 USE_I18N = True
 

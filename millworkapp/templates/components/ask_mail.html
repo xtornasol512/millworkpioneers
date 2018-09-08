@@ -1,12 +1,12 @@
 <!-- Sign up -->
 <div class="section-signup bg1-pattern p-t-85 p-b-85">
-  <form class="flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5">
+  <form class="flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5" method="POST" action="{% url 'askmail_form' %}">{% csrf_token %}
     <span class="txt5 m-10">
       Want to receive a contact info
     </span>
 
     <div class="wrap-input-signup size17 bo2 bo-rad-10 bgwhite pos-relative txt10 m-10">
-      <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email-address" placeholder="Leave your email here">
+      <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="ask_email" placeholder="Leave your email here" required>
       <i class="fa fa-envelope ab-r-m m-r-18" aria-hidden="true"></i>
     </div>
 
