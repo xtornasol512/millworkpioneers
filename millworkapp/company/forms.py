@@ -1,10 +1,10 @@
-import logging
 from django import forms
+from django.conf import settings
 from django.core.mail import send_mail
 
+from core.utils import logger
 from .models import Quote
 
-logger = logging.getLogger('django')
 
 class SuscriptionForm(forms.Form):
     ''' Suscription Form '''
@@ -42,15 +42,17 @@ class ContactForm(forms.Form):
             logger.info("Success send email from :{}, email:{}".format(name, email))
 
 
-
-
-
 class QuoteForm(forms.ModelForm):
     ''' Quote Form '''
+
+    start_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS)
 
     class Meta:
         model = Quote
         fields = [
+            "name",
+            "email",
+            "phone",
             "company",
             "project",
             "bid_due",

@@ -3,7 +3,9 @@ from django.views.generic import View
 from django.contrib import messages
 
 
-from .forms import ContactForm
+from .forms import ContactForm, QuoteForm
+from core.utils import logger
+
 
 class ContactFormView(View):
     ''' Contact View '''
@@ -21,5 +23,27 @@ class ContactFormView(View):
         else:
             messages.success(request, "We found an error on the form, please fill up again and resend it")
             return redirect('contact')
+
+
+
+class AskQuoteFormView(View):
+    ''' Ask qoute form hadler '''
+
+    def post(self, request):
+        ''' Handle post  '''
+
+        form = QuoteForm(request.POST)
+
+        if form.is_valid():
+            quote = form.save()
+            messages.success(request, "Succesful ask quote!")
+            return redirect('/?success=true')
+        else:
+            logger.error("[AshQuote ERROR form]: {}".format(form.errors))
+            messages.error(request, "We found some errors on the form, please fill up again and resend it")
+            return redirect('home')
+
+
+
 
 
