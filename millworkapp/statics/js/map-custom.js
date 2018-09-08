@@ -15,8 +15,8 @@
             img_pin = '/static/brand/millworkpioneers_logo.png';
 
             if (data_map_x == null || data_map_y == null) {
-                data_map_x = 40.007749;
-                data_map_y = -93.266572;
+                data_map_x = 33.8051269;
+                data_map_y = -117.9041834;
             }
             if (scrollwhell == null) {
                 scrollwhell = 0;
