@@ -3,7 +3,7 @@ from django.views.generic import View
 from django.contrib import messages
 
 
-from .forms import ContactForm, QuoteForm
+from .forms import ContactForm, QuoteForm, AskMailForm
 from core.utils import logger
 
 
@@ -43,6 +43,22 @@ class AskQuoteFormView(View):
             messages.error(request, "We found some errors on the form, please fill up again and resend it")
             return redirect('home')
 
+
+class AskMailFormView(View):
+    ''' Ask qoute form hadler '''
+
+    def post(self, request):
+        ''' Handle post  '''
+        form = AskMailForm(request.POST)
+
+        if form.is_valid():
+            form.send_mail()
+            messages.success(request, "Succesful suscribed!")
+            return redirect('/?success=true')
+        else:
+            logger.error("[AshQuote ERROR form]: {}".format(form.errors))
+            messages.error(request, "Sorry wrong email, please try again")
+            return redirect('home')
 
 
 

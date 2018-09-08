@@ -6,16 +6,6 @@ from core.utils import logger
 from .models import Quote
 
 
-class SuscriptionForm(forms.Form):
-    ''' Suscription Form '''
-    email = forms.EmailField(label='Your email here', max_length=100, required=True)
-
-
-    def clean_email(self, cleaned_data):
-        ''' Clean email '''
-        email = cleaned_data['email']
-
-
 class ContactForm(forms.Form):
     '''  Contact form '''
     name = forms.CharField(max_length=255)
@@ -30,16 +20,40 @@ class ContactForm(forms.Form):
             name = self.cleaned_data["name"]
             email = self.cleaned_data["email"]
             message = self.cleaned_data["message"]
-            from_email = "hello@millworkpioneers.com"
-            to_email = "xtornasol512@gmail.com"
+            from_email = settings.WORKING_EMAIL
+            to_email = settings.ADMIN_EMAIL
 
             send_mail(subject, message, from_email, [to_email], fail_silently=False)
 
         except Exception as e:
             logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))
+            raise e
 
         else:
             logger.info("Success send email from :{}, email:{}".format(name, email))
+
+
+class AskMailForm(forms.Form):
+    '''  Contact form '''
+    ask_email = forms.EmailField(required=True)
+
+    def send_mail(self):
+        ''' Send email '''
+        try:
+            email = self.cleaned_data["ask_email"]
+            subject = "Ask Email"
+            message = "Somebody ask for suscription: {}".format(email)
+            from_email = settings.WORKING_EMAIL
+            to_email = settings.ADMIN_EMAIL
+
+            send_mail(subject, message, from_email, [to_email], fail_silently=False)
+
+        except Exception as e:
+            logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))
+            raise e
+
+        else:
+            logger.info("Success receive email:{}".format(email))
 
 
 class QuoteForm(forms.ModelForm):
