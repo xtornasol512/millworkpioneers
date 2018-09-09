@@ -61,6 +61,7 @@ INSTALLED_APPS = [
 
     'core.apps.CoreConfig',
     'company.apps.CompanyConfig',
+    'gallery.apps.GalleryConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -68,7 +69,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'storages',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
