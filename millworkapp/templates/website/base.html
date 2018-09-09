@@ -62,7 +62,6 @@
           {% if messages %}
             {% for message in messages %}
               <div class="alert {% if message.tags %}alert-{{message.tags}}{% else %}alert-warning{% endif %} alert" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>{{ message }}</strong>
               </div>
             {% endfor %}
@@ -94,6 +93,8 @@
   </script>
   <script type="text/javascript" src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
   <script type="text/javascript" src="{% static "vendor/lightbox2/js/lightbox.min.js" %}"></script>
+  {% block js_before_main %}
+  {% endblock js_before_main %}
   <script src="{% static "js/main.js" %}"></script>
   <script>
     {% if messages %}
