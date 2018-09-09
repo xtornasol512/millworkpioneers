@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.db import models
 
-from .models import Review
 from core.admin import AdminImageWidget
+from .models import Review, Tag, Photo
 
 
 class ReviewAdmin(admin.ModelAdmin):
@@ -20,7 +20,17 @@ class ReviewAdmin(admin.ModelAdmin):
     readonly_fields = ['id', ]
 
 
+class TagAdmin(admin.ModelAdmin):
+    ''' Custom Admin model '''
+    list_display = [
+        'name',
+        'description',
+    ]
+
+class PhotoAdmin(admin.ModelAdmin):
+    ''' Custom Admin model '''
+    pass
 
 admin.site.register(Review, ReviewAdmin)
-
-
+admin.site.register(Tag, TagAdmin)
+admin.site.register(Photo, PhotoAdmin)
