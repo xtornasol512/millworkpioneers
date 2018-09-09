@@ -16,17 +16,22 @@
   <div class="wrap-slick3">
     <div class="slick3">
 
-      {% for item in "rev" %}
+      {% for review in reviews %}
         <div class="item-slick3 item1-slick3">
           <div class="wrap-content-slide3 p-b-50 p-t-50">
             <div class="container">
               <div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-                <img src="{% static "images/avatar-01.jpg" %}" alt="IGM-AVATAR">
+                {% if review.avatar %}
+                  <img src="{{review.avatar.url}}" alt="review.name">
+                {% else %}
+                  <img src="{% static "images/avatar-01.jpg" %}" alt="IGM-AVATAR">
+                {% endif %}
+
               </div>
 
               <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
                 <p class="t-center txt12 size15 m-l-r-auto">
-                  “We love the work that MillWorkPioneers do, they are 100% recomended!”
+                    {{ review.description }}
                 </p>
 
                 <div class="star-review fs-18 color0 flex-c-m m-t-12">
@@ -38,7 +43,7 @@
                 </div>
 
                 <div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-                  Andy Garzon ˗ California
+                  {{ review.name }} ˗ {{ review.place }}
                 </div>
               </div>
             </div>
