@@ -12,7 +12,7 @@ class ReviewAdmin(admin.ModelAdmin):
         models.ImageField: {'widget': AdminImageWidget},
     }
 
-    list_display = [
+    list_display_links = list_display = [
         'id',
         'name',
         'description',
@@ -22,14 +22,22 @@ class ReviewAdmin(admin.ModelAdmin):
 
 class TagAdmin(admin.ModelAdmin):
     ''' Custom Admin model '''
-    list_display = [
+    list_display_links = list_display = [
         'name',
         'description',
     ]
+    list_display_links
 
 class PhotoAdmin(admin.ModelAdmin):
     ''' Custom Admin model '''
-    pass
+    formfield_overrides = {
+        models.ImageField: {'widget': AdminImageWidget},
+    }
+    list_display = list_display_links = [
+        'title',
+        'description',
+    ]
+
 
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Tag, TagAdmin)
