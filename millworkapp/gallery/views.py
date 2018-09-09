@@ -1,7 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Tag, Photo
 
 def gallery_page(request):
     ''' Simple Gallery view '''
-    return render(request, 'website/gallery.html')
+    context = {
+        'tags': Tag.objects.all(),
+        'gallery_photos': Photo.objects.all()
+    }
+    return render(request, 'website/gallery.html', context)
