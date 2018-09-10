@@ -96,6 +96,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'millworkapp.processors.add_company_vars',
+                'millworkapp.processors.add_latest_photo_gallery',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
