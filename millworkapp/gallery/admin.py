@@ -1,17 +1,11 @@
 from django.contrib import admin
-from django.db import models
 
-from core.admin import AdminImageWidget
+from core.admin import ImageRenderAdmin
 from .models import Review, Tag, Photo
 
 
-class ReviewAdmin(admin.ModelAdmin):
+class ReviewAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom Admin model '''
-
-    formfield_overrides = {
-        models.ImageField: {'widget': AdminImageWidget},
-    }
-
     list_display_links = list_display = [
         'id',
         'name',
@@ -23,20 +17,21 @@ class ReviewAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     ''' Custom Admin model '''
     list_display_links = list_display = [
+        'id',
         'name',
         'description',
     ]
-    list_display_links
+    readonly_fields = ['id', ]
 
-class PhotoAdmin(admin.ModelAdmin):
+
+class PhotoAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom Admin model '''
-    formfield_overrides = {
-        models.ImageField: {'widget': AdminImageWidget},
-    }
     list_display = list_display_links = [
+        'id',
         'title',
         'description',
     ]
+    readonly_fields = ['id', ]
 
 
 admin.site.register(Review, ReviewAdmin)

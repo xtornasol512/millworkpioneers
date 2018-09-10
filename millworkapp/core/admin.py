@@ -1,5 +1,6 @@
 from django.contrib.admin.widgets import AdminFileWidget
 from django.utils.safestring import mark_safe
+from django.db import models
 
 
 
@@ -13,3 +14,10 @@ class AdminImageWidget(AdminFileWidget):
                 (image_url, image_url, file_name))
         output.append(super(AdminFileWidget, self).render(name, value, attrs))
         return mark_safe(u''.join(output))
+
+
+class ImageRenderAdmin(object):
+    ''' custom admin render admin '''
+    formfield_overrides = {
+        models.ImageField: {'widget': AdminImageWidget},
+    }
