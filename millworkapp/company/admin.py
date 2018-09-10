@@ -7,12 +7,7 @@ class CompanyAdmin(admin.ModelAdmin):
 
 class ClientAdmin(admin.ModelAdmin):
     ''' Custom Client  admin '''
-    list_display = [
-        "name",
-        "website",
-        "headline",
-    ]
-    list_display_links = [
+    list_display_links = list_display = [
         "name",
         "website",
         "headline",
@@ -20,7 +15,7 @@ class ClientAdmin(admin.ModelAdmin):
 
 class QuoteAdmin(admin.ModelAdmin):
     ''' Custom Quote admin '''
-    list_display =[
+    list_display_links = list_display = [
         'id',
         'name',
         'phone',
@@ -29,17 +24,6 @@ class QuoteAdmin(admin.ModelAdmin):
         'project',
         'start_date',
         'created_at'
-    ]
-    list_display_links = [
-        'id',
-        'name',
-        'phone',
-        'email',
-        'company',
-        'project',
-        'start_date',
-        'created_at'
-
     ]
 
 
