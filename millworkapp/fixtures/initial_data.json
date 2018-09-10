@@ -86,6 +86,24 @@
     }
 },
 {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$36000$PmutyaONO1hd$n36VsWZe/qIHaNaLP1QgHV5gf14OBvwf+IRBx9kBgrk=",
+        "last_login": "2018-09-09T08:57:12.537Z",
+        "is_superuser": true,
+        "username": "karina@millworkpioneers.com",
+        "first_name": "Karina",
+        "last_name": "",
+        "email": "karina@millworkpioneers.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2018-09-02T00:56:29.284Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
     "model": "gallery.review",
     "pk": 1,
     "fields": {
