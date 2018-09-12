@@ -34,13 +34,18 @@
               <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
                 <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="project" placeholder="Project Name" required>
               </div>
-              <!-- Project Name -->
+
+              <!-- Prevailing Wage -->
               <span class="txt9">
-                Bid Due
+                Prevailing Wage
               </span>
 
-              <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="bid_due" placeholder="Bid Due" required>
+              <div class="wrap-inputtime size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                <!-- Select2 -->
+                <select class="selection-1" name="prevailing_wage">
+                  <option value="YES">YES</option>
+                  <option value="NO">NO</option>
+                </select>
               </div>
 
               <!-- Date -->
@@ -82,29 +87,36 @@
               <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
                 <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="Your Email" required>
               </div>
-               <!-- Email -->
+
+              <!-- Project Name -->
               <span class="txt9">
-                Prevailing Wage
+                Bid Due
               </span>
 
-              <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="prevailing_wage" placeholder="Prevailing Wage" required>
+              <div class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                <input class="my-calendar bo-rad-10 sizefull txt10 p-l-20" type="text" name="bid_due" required>
+                <i class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18" aria-hidden="true"></i>
               </div>
 
             </div>
           </div>
 
           <div class="wrap-btn-booking flex-c-m m-t-6">
+              <!-- Brief Message -->
+              <textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="description" placeholder="Some description of the project"></textarea>
+            </div>
+
+          <div class="wrap-btn-booking flex-c-m m-t-6">
             <!-- Button3 -->
             <button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4">
-              Ask quote
+              Request quote
             </button>
           </div>
         </form>
       </div>
 
       <div class="col-lg-6 p-b-30 p-t-18">
-        <div class="wrap-pic-booking size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+        <div class="wrap-pic-booking size3 bo-rad-10 hov-img-zoom m-l-r-auto">
           <img src="{% static "components/ask_quote.jpg" %}" alt="IMG-OUR">
         </div>
       </div>

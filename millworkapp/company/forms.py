@@ -60,6 +60,7 @@ class QuoteForm(forms.ModelForm):
     ''' Quote Form '''
 
     start_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS)
+    bid_due = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS)
 
     class Meta:
         model = Quote
@@ -72,6 +73,7 @@ class QuoteForm(forms.ModelForm):
             "bid_due",
             "start_date",
             "prevailing_wage",
+            "description",
         ]
 
 

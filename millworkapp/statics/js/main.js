@@ -71,13 +71,6 @@
 
     $('.btn-calendar').on('click',function(e){
         e.stopPropagation();
-
-        if(isClick == 1) isClick = 0;
-        else if(isClick == 0) isClick = 1;
-
-        if (isClick == 1) {
-            myCalendar.focus();
-        }
     });
 
     $(myCalendar).on('click',function(e){

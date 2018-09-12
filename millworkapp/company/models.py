@@ -54,9 +54,14 @@ class Quote(Timestampable, models.Model):
     phone = models.CharField("Phone", max_length=50, blank=True, default="")
     company = models.CharField("Company name", max_length=255, default="")
     project = models.CharField("Project name", max_length=255, blank=True, default="")
-    bid_due = models.CharField("Bid Due", max_length=255, blank=True, default="")
+    bid_due = models.DateField("Estimated start date", default=datetime.today)
     start_date = models.DateField("Estimated start date", default=datetime.today)
-    prevailing_wage = models.CharField("Prevailing wage", max_length=255, blank=True, default="")
+    PREVAILING_OPTIONS = (
+        ("YES", 'YES'),
+        ("NO", 'NO')
+    )
+    prevailing_wage = models.CharField("Prevailing wage", max_length=255, blank=True, choices=PREVAILING_OPTIONS, default="")
+    description = models.TextField("Description", blank=True, default="")
 
     class Meta:
         ''' Custom Admin metadata'''
