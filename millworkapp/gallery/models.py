@@ -44,6 +44,7 @@ class Photo(Timestampable, models.Model):
     description = models.TextField("Short description", blank=True, default="")
     picture = models.ImageField(upload_to='gallery_photos')
     tags = models.ManyToManyField("gallery.Tag", related_name="photos", blank=True)
+    project = models.ForeignKey("gallery.Project", models.SET_NULL, blank=True, null=True, related_name="photos", help_text='Select one project')
 
     class Meta:
         ''' Custom Model metadata '''
@@ -55,6 +56,24 @@ class Photo(Timestampable, models.Model):
         return self.title
 
 
+class Project(Timestampable, models.Model):
+    ''' Project Model '''
+    title = models.CharField("Title of project", max_length=255, default="")
+    description = models.TextField(blank=True, default="")
+    client = models.CharField("Client name", max_length=255, blank=True, default="")
+    STATUS_PROJECT_OPTIONS = (
+        ("COMPLETED", 'Completed'),
+        ("IN PROGRESS", 'In progress'),
+    )
+    status_project = models.CharField("Status of the project", blank=True, max_length=255, choices=STATUS_PROJECT_OPTIONS, default="COMPLETED", help_text='Select one')
+    main_picture = models.ImageField("Main picture for project", upload_to='projects', blank=True)
+    is_display_on_website = models.BooleanField("Will display on site?", default=True, help_text='Select "Yes" to display on site')
 
+    class Meta:
+        ''' Custom Model metadata '''
+        verbose_name_plural = "Millwork Projects"
+        ordering = ['created_at']
 
-
+    def __str__(self):
+        ''' Return string data '''
+        return self.title

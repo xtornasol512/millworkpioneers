@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from core.admin import ImageRenderAdmin
-from .models import Review, Tag, Photo
+from .models import Review, Tag, Photo, Project
 
 
 class ReviewAdmin(ImageRenderAdmin, admin.ModelAdmin):
@@ -34,6 +34,12 @@ class PhotoAdmin(ImageRenderAdmin, admin.ModelAdmin):
     readonly_fields = ['id', ]
 
 
+class ProjectAdmin(ImageRenderAdmin, admin.ModelAdmin):
+    ''' Custom Admin Model '''
+    pass
+
+
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Photo, PhotoAdmin)
+admin.site.register(Project, ProjectAdmin)
