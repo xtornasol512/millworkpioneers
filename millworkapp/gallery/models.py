@@ -5,6 +5,7 @@ from imagekit.processors import ResizeToFill
 from django.utils.safestring import mark_safe
 
 from core.behaviors import Timestampable
+from .managers import ProjectManager
 
 class Review(Timestampable, models.Model):
     ''' Review Model '''
@@ -68,6 +69,8 @@ class Project(Timestampable, models.Model):
     status_project = models.CharField("Status of the project", blank=True, max_length=255, choices=STATUS_PROJECT_OPTIONS, default="COMPLETED", help_text='Select one')
     main_picture = models.ImageField("Main picture for project", upload_to='projects', blank=True)
     is_display_on_website = models.BooleanField("Will display on site?", default=True, help_text='Select "Yes" to display on site')
+
+    objects = ProjectManager()
 
     class Meta:
         ''' Custom Model metadata '''
