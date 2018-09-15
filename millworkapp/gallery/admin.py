@@ -3,6 +3,10 @@ from django.contrib import admin
 from core.admin import ImageRenderAdmin
 from .models import Review, Tag, Photo, Project
 
+class PhotoInline(ImageRenderAdmin, admin.StackedInline):
+    model = Photo
+    extra = 1
+
 
 class ReviewAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom Admin model '''
@@ -36,7 +40,7 @@ class PhotoAdmin(ImageRenderAdmin, admin.ModelAdmin):
 
 class ProjectAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom Admin Model '''
-    pass
+    inlines = [PhotoInline, ]
 
 
 admin.site.register(Review, ReviewAdmin)
