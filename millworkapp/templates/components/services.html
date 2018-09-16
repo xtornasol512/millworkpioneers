@@ -1,0 +1,36 @@
+{% load static %}
+  <!-- Our menu -->
+  <section id="Services" class="section-ourmenu bg2-pattern p-t-115 p-b-120">
+    <div class="container">
+      <div class="title-section-ourmenu t-center m-b-22">
+        <span class="tit2 t-center">
+          Discover
+        </span>
+
+        <h3 class="tit5 t-center m-t-2">
+          Our Services
+        </h3>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row justify-content-center">
+            {% for service in services %}
+              <div class="col-sm-6 d-flex align-items-center">
+                <!-- Item our menu -->
+                <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+                  <img src="{{ service.main_picture.url }}" alt="{{ service.description }}">
+
+                  <!-- Button2 -->
+                  <a href="#" class="btn2 flex-c-m txt5 ab-c-m size4" title="{{ service.description }}">
+                    {{ service.name }}
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>

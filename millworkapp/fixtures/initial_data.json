@@ -355,5 +355,93 @@
         "main_picture": "projects/26171015_1870791516545341_5380597602286412897_o.jpg",
         "is_display_on_website": true
     }
+},
+{
+    "model": "gallery.service",
+    "pk": 1,
+    "fields": {
+        "created_at": "2018-09-16T01:48:11.877Z",
+        "updated_at": "2018-09-16T02:57:46.623Z",
+        "name": "Paneling",
+        "description": "Paneling Photos",
+        "main_picture": "services/paneling.jpg"
+    }
+},
+{
+    "model": "gallery.service",
+    "pk": 2,
+    "fields": {
+        "created_at": "2018-09-16T01:48:20.998Z",
+        "updated_at": "2018-09-16T02:57:58.061Z",
+        "name": "Molding",
+        "description": "Molding photos",
+        "main_picture": "services/molding.jpg"
+    }
+},
+{
+    "model": "gallery.service",
+    "pk": 3,
+    "fields": {
+        "created_at": "2018-09-16T02:39:11.426Z",
+        "updated_at": "2018-09-16T03:47:06.978Z",
+        "name": "Cabinets",
+        "description": "Beautiful cabinets",
+        "main_picture": "services/39262699_2014523958838762_176941300996636672_n.jpg"
+    }
+},
+{
+    "model": "gallery.service",
+    "pk": 4,
+    "fields": {
+        "created_at": "2018-09-16T02:39:29.736Z",
+        "updated_at": "2018-09-16T03:00:17.735Z",
+        "name": "Fixtures",
+        "description": "Great fixtures",
+        "main_picture": "services/124656057.jpg"
+    }
+},
+{
+    "model": "gallery.service",
+    "pk": 5,
+    "fields": {
+        "created_at": "2018-09-16T02:39:49.036Z",
+        "updated_at": "2018-09-16T03:01:29.701Z",
+        "name": "Doors",
+        "description": "Great Doors",
+        "main_picture": "services/saje.jpg"
+    }
+},
+{
+    "model": "gallery.service",
+    "pk": 6,
+    "fields": {
+        "created_at": "2018-09-16T02:40:10.271Z",
+        "updated_at": "2018-09-16T03:04:13.605Z",
+        "name": "Surfaces",
+        "description": "Nice surfaces",
+        "main_picture": "services/26171900_1870791469878679_2244255843453876270_o.jpg"
+    }
+},
+{
+    "model": "gallery.service",
+    "pk": 7,
+    "fields": {
+        "created_at": "2018-09-16T02:56:42.030Z",
+        "updated_at": "2018-09-16T03:03:53.208Z",
+        "name": "Architectural",
+        "description": "Architectural Millwork",
+        "main_picture": "services/26171015_1870791516545341_5380597602286412897_o.jpg"
+    }
+},
+{
+    "model": "gallery.service",
+    "pk": 8,
+    "fields": {
+        "created_at": "2018-09-16T02:57:06.751Z",
+        "updated_at": "2018-09-16T03:47:29.050Z",
+        "name": "Restaurant",
+        "description": "Restaurant Features",
+        "main_picture": "services/26198668_1870791523212007_1765513466031991152_o.jpg"
+    }
 }
 ]

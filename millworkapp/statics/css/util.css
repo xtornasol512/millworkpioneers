@@ -3400,8 +3400,9 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 }
 
 .size4 {
-	width: 150px;
+
 	height: 60px;
+    padding: 1em;
 }
 
 .size5 {
