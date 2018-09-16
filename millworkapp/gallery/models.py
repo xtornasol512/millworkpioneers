@@ -49,7 +49,7 @@ class Photo(Timestampable, models.Model):
 
     class Meta:
         ''' Custom Model metadata '''
-        verbose_name_plural = "Gallery Page Photos"
+        verbose_name_plural = "Gallery Photos"
         ordering = ['created_at']
 
     def __str__(self):
@@ -80,3 +80,20 @@ class Project(Timestampable, models.Model):
     def __str__(self):
         ''' Return string data '''
         return self.title
+
+
+class Service(Timestampable, models.Model):
+    ''' Service '''
+    name = models.CharField("Name", max_length=255, default="")
+    description = models.TextField(blank=True, default="")
+
+    main_picture =  models.ImageField("Main picture for project", upload_to='services', blank=True)
+
+    class Meta:
+        ''' Custom Model metadata '''
+        verbose_name_plural = "Millwork Services"
+        ordering = ['created_at']
+
+    def __str__(self):
+        ''' Return string data '''
+        return self.name

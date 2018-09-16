@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from core.admin import ImageRenderAdmin
-from .models import Review, Tag, Photo, Project
+from .models import Review, Tag, Photo, Project, Service
 
 class PhotoInline(ImageRenderAdmin, admin.StackedInline):
     model = Photo
@@ -49,8 +49,18 @@ class ProjectAdmin(ImageRenderAdmin, admin.ModelAdmin):
         'updated_at',
     ]
 
+class ServiceAdmin(ImageRenderAdmin, admin.ModelAdmin):
+    ''' Custom admin model '''
+    list_display_links = list_display = [
+        'name',
+        'description',
+        'created_at',
+        'updated_at',
+    ]
+
 
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(Service, ServiceAdmin)
