@@ -40,27 +40,27 @@
       <div class="col-sm-6 col-md-4 p-t-50">
         <!-- - -->
         <h4 class="txt13 m-b-33">
-          Latest news
+          Latest projects
         </h4>
         {#T ODO adjust this for #}
-        {% for item in "ab" %}
+        {% for project in latest_projects %}
           <div class="m-b-25">
             <span class="fs-13 color2 m-r-5">
               <i class="fa fa-bookmark" aria-hidden="true"></i>
             </span>
             <a href="#" class="txt15">
-              New title post
+              {{ project.title }}
             </a>
 
             <p class="txt14 m-b-18">
-              Some interesting new on blog post!
-              <a href="https://www.linkedin.com/company/millwork-pioneers-inc/" class="txt15">
-                https://www.linkedin.com/company/millwork-pioneers-inc/
+              {{ project.description }}
+              <a href="#" class="txt15">
+               {{ project.client }}
               </a>
             </p>
 
             <span class="txt16">
-              21 Dec 2017
+              {{ project.created_at|date:"d M Y" }}
             </span>
           </div>
         {% endfor %}
