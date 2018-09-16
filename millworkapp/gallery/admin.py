@@ -41,6 +41,13 @@ class PhotoAdmin(ImageRenderAdmin, admin.ModelAdmin):
 class ProjectAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom Admin Model '''
     inlines = [PhotoInline, ]
+    list_filter = ['status_project', ]
+    list_display_links = list_display = [
+        'title',
+        'status_project',
+        'created_at',
+        'updated_at',
+    ]
 
 
 admin.site.register(Review, ReviewAdmin)
