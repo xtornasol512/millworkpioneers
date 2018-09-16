@@ -1,7 +1,11 @@
 from django.contrib import admin
 
 from core.admin import ImageRenderAdmin
-from .models import Review, Tag, Photo
+from .models import Review, Tag, Photo, Project
+
+class PhotoInline(ImageRenderAdmin, admin.StackedInline):
+    model = Photo
+    extra = 1
 
 
 class ReviewAdmin(ImageRenderAdmin, admin.ModelAdmin):
@@ -34,6 +38,19 @@ class PhotoAdmin(ImageRenderAdmin, admin.ModelAdmin):
     readonly_fields = ['id', ]
 
 
+class ProjectAdmin(ImageRenderAdmin, admin.ModelAdmin):
+    ''' Custom Admin Model '''
+    inlines = [PhotoInline, ]
+    list_filter = ['status_project', ]
+    list_display_links = list_display = [
+        'title',
+        'status_project',
+        'created_at',
+        'updated_at',
+    ]
+
+
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Photo, PhotoAdmin)
+admin.site.register(Project, ProjectAdmin)
