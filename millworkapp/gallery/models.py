@@ -60,6 +60,8 @@ class Photo(Timestampable, models.Model):
 class Project(Timestampable, models.Model):
     ''' Project Model '''
     title = models.CharField("Title of project", max_length=255, default="")
+    slug = models.SlugField("Url slug", max_length=255, blank=True, default="", help_text='This field is auto-generated')
+
     description = models.TextField(blank=True, default="")
     client = models.CharField("Client name", max_length=255, blank=True, default="")
     STATUS_PROJECT_OPTIONS = (
@@ -80,6 +82,7 @@ class Project(Timestampable, models.Model):
     def __str__(self):
         ''' Return string data '''
         return self.title
+
 
 
 class Service(Timestampable, models.Model):

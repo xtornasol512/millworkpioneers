@@ -1,0 +1,117 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block title %}Our Projects{% endblock title %}
+
+{% block content %}
+  <!-- Title Page -->
+  <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static "components/contact_us.jpg" %});">
+    <h2 class="tit6 t-center">
+      Our Projects
+    </h2>
+  </section>
+  <section>
+    <div class="bread-crumb bo5-b p-t-17 p-b-17">
+      <div class="container">
+        <a href="{% url 'home' %}" class="txt27" title="Back to home">
+          Home
+        </a>
+
+        <span class="txt29 m-l-10 m-r-10">/</span>
+
+        <span class="txt29">
+          Projects
+        </span>
+      </div>
+    </div>
+    <!-- End projects-->
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 col-lg-9">
+          <div class="p-t-80 p-b-124 h-full p-r-50 p-r-0-md bo-none-md">
+
+            {% for project in projects %}
+            <!-- Begin Project -->
+            <div class="blo4 p-b-63">
+              <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
+                <a href="{% url 'project_detail' project.slug %}">
+                  <img src="{{ project.main_picture.url }}" alt="{{ project.client }}">
+                </a>
+
+                <div class="date-blo4 flex-col-c-m">
+                  <span class="txt30 m-b-4">
+                    {{ project.created_at|date:"d" }}
+                  </span>
+
+                  <span class="txt31">
+                    {{ project.created_at|date:"M Y" }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="text-blo4 p-t-33">
+                <h4 class="p-b-16">
+                  <a href="blog-detail.html" class="tit9">{{ project.title }}</a>
+                </h4>
+
+                <div class="txt32 flex-w p-b-24">
+                  <span>
+                    {{project.client}}
+                    <span class="m-r-6 m-l-4">|</span>
+                  </span>
+
+                  <span>
+                    {{ project.created_at|date:"d M Y" }}
+                    <span class="m-r-6 m-l-4">|</span>
+                  </span>
+
+                  <span>
+                    {{ project.status_project }}
+                    <span class="m-r-6 m-l-4">|</span>
+                  </span>
+
+                </div>
+
+                <p>
+                  {{ project.description }}
+                </p>
+
+                <a href="blog-detail.html" class="dis-block txt4 m-t-30">
+                  Continue Reading
+                  <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <!-- EndProject -->
+            {% endfor %}
+            {% if is_paginated %}
+              <!-- pagination -->
+              <div class="pagination flex-l-m flex-w m-l--6 p-t-25">
+                {% if page_obj.has_previous %}
+                  <a class="item-pagination flex-c-m trans-0-4" href="/projects?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                {% else %}
+                  <a class="item-pagination flex-c-m trans-0-4 disabled"><span>&laquo;</span></a>
+                {% endif %}
+                {% for i in paginator.page_range %}
+                  {% if page_obj.number == i %}
+                    <a class="item-pagination flex-c-m trans-0-4 active-pagination"><span style="color:#fff;">{{ i }} <span class="sr-only">(current)</span></span></a>
+                  {% else %}
+                    <a class="item-pagination flex-c-m trans-0-4" href="/projects?page={{ i }}">{{ i }}</a>
+                  {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                  <a class="item-pagination flex-c-m trans-0-4" href="/projects?page={{ page_obj.next_page_number }}">&raquo;</a>
+                {% else %}
+                  <a class="item-pagination flex-c-m trans-0-4 disabled"><span>&raquo;</span></a>
+                {% endif %}
+              </div>
+              <!--End pagination -->
+            {% endif %}
+          </div>
+        </div>
+        <!-- End projects-->
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}

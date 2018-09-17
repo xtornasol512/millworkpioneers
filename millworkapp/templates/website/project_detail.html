@@ -1,0 +1,99 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block title %}{{ project.title }}{% endblock title %}
+
+{% block content %}
+  <!-- Title Page -->
+  <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({{ project.main_picture.url }})">
+    <h2 class="tit6 t-center">
+      {{ project.title }}
+    </h2>
+  </section>
+
+<!-- Content page -->
+  <section>
+    <div class="bread-crumb bo5-b p-t-17 p-b-17">
+      <div class="container">
+        <a href="{% url 'home' %}" class="txt27" title="Go to Home">
+          Home
+        </a>
+
+        <span class="txt29 m-l-10 m-r-10">/</span>
+
+        <a href="{% url 'projects' %}" class="txt27" title="Go to Projects">
+          Projects
+        </a>
+
+        <span class="txt29 m-l-10 m-r-10">/</span>
+
+        <span class="txt29">
+          {{ project.title }}
+        </span>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 col-lg-9">
+          <div class="p-t-80 p-b-124 p-r-50 h-full p-r-0-md bo-none-md">
+            <!-- Block4 -->
+            <div class="blo4 p-b-63">
+              <!-- - -->
+              <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
+                <a href="#">
+                  <img src="{{ project.main_picture.url }}" alt="{{ project.client }}">
+                </a>
+
+                <div class="date-blo4 flex-col-c-m">
+                  <span class="txt30 m-b-4">
+                    {{ project.created_at|date:"d" }}
+                  </span>
+
+                  <span class="txt31">
+                    {{ project.created_at|date:"M Y" }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- - -->
+              <div class="text-blo4 p-t-33">
+                <h4 class="p-b-16">
+                  <a href="blog-detail.html" class="tit9">{{ project.title }}</a>
+                </h4>
+
+                <div class="txt32 flex-w p-b-24">
+                  <span>
+                    {{ project.client }}
+                    <span class="m-r-6 m-l-4">|</span>
+                  </span>
+
+                  <span>
+                    {{ project.created_at|date:"d M Y" }}
+                    <span class="m-r-6 m-l-4">|</span>
+                  </span>
+
+                  <span>
+                    {{ project.status_project }}
+                    <span class="m-r-6 m-l-4">|</span>
+                  </span>
+                </div>
+
+                <p>
+                  {{ project.description }}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}
+
+{% block jsblock %}
+{% endblock jsblock %}
+
