@@ -25,7 +25,7 @@ class ProjectsView(ListView):
     model = Project
     template_name = 'website/projects.html'
     context_object_name = 'projects'
-    paginate_by = 10
+    paginate_by = 3
     queryset = Project.objects.display_on_website()
 
 
