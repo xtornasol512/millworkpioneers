@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.views.generic import View, ListView
+from django.views.generic import ListView, DetailView
 
 from gallery.models import Project
 
@@ -29,12 +29,12 @@ class ProjectsView(ListView):
     queryset = Project.objects.display_on_website()
 
 
-class ProjectsDetail(View):
+class ProjectsDetail(DetailView):
     ''' Custom View '''
-    template = 'website/project_detail.html'
-    context = {}
+    template_name = 'website/project_detail.html'
+    slug_name = 'slug'
+    model = Project
+    context_object_name = 'project'
 
-    def get(self, request, slug):
-        ''' Custom get with slug '''
-        return render(request, self.template, self.context)
+
 

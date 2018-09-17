@@ -33,7 +33,7 @@
             <!-- Begin Project -->
             <div class="blo4 p-b-63">
               <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
-                <a href="blog-detail.html">
+                <a href="{% url 'project_detail' project.slug %}">
                   <img src="{{ project.main_picture.url }}" alt="{{ project.client }}">
                 </a>
 

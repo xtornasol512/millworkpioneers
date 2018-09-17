@@ -41,13 +41,24 @@ class PhotoAdmin(ImageRenderAdmin, admin.ModelAdmin):
 class ProjectAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom Admin Model '''
     inlines = [PhotoInline, ]
-    list_filter = ['status_project', ]
+    list_filter = ['status_project', 'is_display_on_website', ]
     list_display_links = list_display = [
         'title',
         'status_project',
+        'is_display_on_website',
         'created_at',
         'updated_at',
     ]
+    fields = [
+        'title',
+        'slug',
+        'status_project',
+        'description',
+        'client',
+        'main_picture',
+        'is_display_on_website',
+    ]
+    prepopulated_fields = {"slug": ("title",)}
 
 class ServiceAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom admin model '''
