@@ -32,7 +32,7 @@
                     {{ project.title }}
                   </p>
 
-                  <a href="#" class="txt4" title="{{project.description}}">
+                  <a href="{% url 'project_detail' project.slug %}" class="txt4" title="{{project.description}}">
                     Learn More
                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                   </a>
