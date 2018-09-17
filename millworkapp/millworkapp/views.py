@@ -16,6 +16,7 @@ def home(request):
         "reviews": reviews,
         "projects": projects,
         "in_progress": in_progress,
+        "services": services,
     }
 
     return render(request, "website/home.html", context)
