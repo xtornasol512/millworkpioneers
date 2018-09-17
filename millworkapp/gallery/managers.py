@@ -8,6 +8,9 @@ class ProjectManager(models.Manager):
     def get_queryset(self):
         return ProjectQueryset(self.model, using=self._db)
 
+    def display_on_website(self):
+        return self.get_queryset().display_on_website()
+
     def all_completed(self):
         return self.get_queryset().all_completed()
 

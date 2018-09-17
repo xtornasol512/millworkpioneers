@@ -10,6 +10,7 @@ def add_company_vars(request):
 
 def add_latest_photo_gallery(request):
     ''' Add the latest photos of gallery to context '''
+
     LATEST_NUMBER_OF_PHOTOS = 8
     LATEST_PROJECTS = 2
 
