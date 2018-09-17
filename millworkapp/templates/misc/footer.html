@@ -54,7 +54,7 @@
 
             <p class="txt14 m-b-18">
               {{ project.description }}
-              <a href="#" class="txt15">
+              <a href="{% url 'project_detail' project.slug %}" class="txt15">
                {{ project.client }}
               </a>
             </p>
