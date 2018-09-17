@@ -48,7 +48,7 @@
             <span class="fs-13 color2 m-r-5">
               <i class="fa fa-bookmark" aria-hidden="true"></i>
             </span>
-            <a href="#" class="txt15">
+            <a href="{% url 'project_detail' project.slug %}" class="txt15" title="{{project.title}}">
               {{ project.title }}
             </a>
 

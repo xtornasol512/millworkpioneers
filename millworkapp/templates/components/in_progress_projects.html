@@ -20,7 +20,7 @@
         <!-- Block1 -->
         <div class="blo1">
           <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-            <a href="blog-detail.html"><img src="{{ project.main_picture.url }}" alt="{{ project.client }}"></a>
+            <a href="{% url 'project_detail' project.slug %}"><img src="{{ project.main_picture.url }}" alt="{{ project.client }}"></a>
 
             <div class="time-blog">
               {{ project.created_at|date:"d M Y" }}{#21 Dec 2017 #}
