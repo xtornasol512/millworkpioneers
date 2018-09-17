@@ -36,5 +36,3 @@ class ProjectsDetail(DetailView):
     model = Project
     context_object_name = 'project'
 
-
-
