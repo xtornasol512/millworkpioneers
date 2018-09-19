@@ -20,7 +20,7 @@ class Company(Timestampable, models.Model):
     linkedin = models.CharField("Linkedin", max_length=255, blank=True, default="")
     service_area = models.TextField("Service area", blank=True, default="")
     hours_operation = models.TextField("Hours of operation", blank=True, default="")
-
+    main_video = models.URLField("Youtube or vimeo URL", blank=True)
     data = JSONField(blank=True, default={}, help_text="Metadata")
 
     class Meta:
