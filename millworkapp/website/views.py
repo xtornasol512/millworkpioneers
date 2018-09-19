@@ -3,6 +3,7 @@ from django.conf import settings
 from django.views.generic import ListView, DetailView
 
 from gallery.models import Project
+from company.models import Client
 
 
 def favicon(request):
@@ -11,7 +12,11 @@ def favicon(request):
 
 def about(request):
     ''' About View'''
-    return render(request, 'website/about.html')
+    client_members = Client.objects.all()
+    context = {
+        'client_members': client_members,
+    }
+    return render(request, 'website/about.html', context)
 
 
 def contact(request):
