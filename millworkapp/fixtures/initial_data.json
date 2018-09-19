@@ -24,10 +24,11 @@
     "pk": 1,
     "fields": {
         "created_at": "2018-09-02T06:16:16.540Z",
-        "updated_at": "2018-09-02T06:16:16.540Z",
+        "updated_at": "2018-09-19T04:47:42.765Z",
         "name": "Pacific Architectural Millwork",
         "website": "http://www.pacmillwork.com/cms/",
         "headline": "Official Page Pacific Architectural Millwork",
+        "logo": "alliances_logos/PacificArqMillworkLogo.png",
         "data": {}
     }
 },
@@ -36,10 +37,11 @@
     "pk": 2,
     "fields": {
         "created_at": "2018-09-02T06:23:01.313Z",
-        "updated_at": "2018-09-02T06:23:01.313Z",
+        "updated_at": "2018-09-19T04:47:11.552Z",
         "name": "Architectural Woodwork of Montana",
         "website": "http://www.architecturalwoodwork.com/index.htm",
         "headline": "Official Page Architectural Woodwork of Montana",
+        "logo": "alliances_logos/ArquitecturalMillwork.png",
         "data": {}
     }
 },
@@ -48,22 +50,11 @@
     "pk": 3,
     "fields": {
         "created_at": "2018-09-02T06:23:28.802Z",
-        "updated_at": "2018-09-02T06:23:28.802Z",
+        "updated_at": "2018-09-19T04:23:47.468Z",
         "name": "Design Fabricators",
         "website": "http://designfabricators.com/",
         "headline": "Official Page Design Fabricators",
-        "data": {}
-    }
-},
-{
-    "model": "company.client",
-    "pk": 4,
-    "fields": {
-        "created_at": "2018-09-02T06:23:50.439Z",
-        "updated_at": "2018-09-02T06:23:50.439Z",
-        "name": "WB Powell",
-        "website": "http://www.wbpowell.com/",
-        "headline": "Oficial Page WB Powell",
+        "logo": "alliances_logos/Screen_Shot_2018-09-18_at_11.23.21_PM.png",
         "data": {}
     }
 },
