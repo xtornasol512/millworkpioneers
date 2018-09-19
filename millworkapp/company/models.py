@@ -38,6 +38,7 @@ class Client(Timestampable, models.Model):
     name = models.CharField("Client name", max_length=255, default="")
     website = models.URLField("Website url", blank=True, max_length=255)
     headline = models.CharField("Company headline", max_length=255, blank=True, default="")
+    logo = models.ImageField(upload_to='alliances_logos', blank=True)
 
     data = JSONField(blank=True, default={}, help_text="Metadata")
 
