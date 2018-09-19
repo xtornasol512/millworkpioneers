@@ -1,11 +1,12 @@
 from django.contrib import admin
 
+from core.admin import ImageRenderAdmin
 from .models import Company, Client, Quote
 
 class CompanyAdmin(admin.ModelAdmin):
     pass
 
-class ClientAdmin(admin.ModelAdmin):
+class ClientAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom Client  admin '''
     list_display_links = list_display = [
         "name",
