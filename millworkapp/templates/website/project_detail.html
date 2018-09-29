@@ -81,19 +81,38 @@
                 <p>
                   {{ project.description }}
                 </p>
-              </div>
+                <br />
+
+                <!-- BEGIN Gallery  -->
+                <h4>
+                  Project Photos
+                </h4>
+                <div class="wrap-gallery isotope-grid flex-w p-l-25 p-r-25">
+                  {% for photo in  project.photos.all %}
+                    <!-- PHOTO  -->
+                    <div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events guests">
+                      <img src="{{ photo.picture.url }}" alt="{{ photo.description }}">
+
+                      <div class="overlay-item-gallery trans-0-4 flex-c-m">
+                        <a class="btn-show-gallery flex-c-m fa fa-search" href="{{ photo.picture.url }}" data-lightbox="gallery"></a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div><!-- END Gallery  -->
+
+              </div><!-- text block-->
             </div>
-
           </div>
-        </div>
+        </div> <!-- col -->
+      </div><!-- row -->
+    </div><!-- Container -->
 
-      </div>
-    </div>
   </section>
 
 
 {% endblock content %}
 
-{% block jsblock %}
-{% endblock jsblock %}
+{% block jsbeforemain %}
+  <script type="text/javascript" src="{% static "vendor/isotope/isotope.pkgd.min.js" %}"></script>
+{% endblock jsbeforemain %}
 
