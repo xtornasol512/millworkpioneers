@@ -3,7 +3,7 @@ from django.views.generic import View
 from django.contrib import messages
 
 
-from .forms import ContactForm, QuoteForm, AskMailForm
+from .forms import ContactForm, QuoteForm, AskMailForm, CareerForm
 from core.utils import logger
 
 
@@ -69,6 +69,18 @@ class CareersView(View):
 
     def get(self, request):
         return render(request, self.template, self.context)
+
+    def post(self, request):
+        form = CareerForm(request.POST)
+        if form.is_valid():
+            form.send_mail()
+            messages.success(request, "Thank you for your application! We'll contact you soon!")
+            return redirect('home')
+        else:
+            logger.error("FOUND ERRORS ON CAREER FORM: {}".format(form.errors))
+            messages.error(request, "We found errors on form, please check them and try again!")
+            messages.warning(request, "{}".format(form.errors))
+            return render(request, self.template)
 
 
 
