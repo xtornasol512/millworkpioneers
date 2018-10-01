@@ -39,7 +39,7 @@ class AskQuoteFormView(View):
             messages.success(request, "Successful ask quote!")
             return redirect('home')
         else:
-            logger.error("[AshQuote ERROR form]: {}".format(form.errors))
+            logger.error(F"[AshQuote ERROR form]: {forms.errors}")
             messages.error(request, "We found some errors on the form, please fill up again and resend it")
             return redirect('home')
 
@@ -56,7 +56,7 @@ class AskMailFormView(View):
             messages.success(request, "Successful subscribed!")
             return redirect('home')
         else:
-            logger.error("[AshQuote ERROR form]: {}".format(form.errors))
+            logger.error(F"[AshQuote ERROR form]: {form.errors}")
             messages.error(request, "Sorry wrong email, please try again")
             return redirect('home')
 
@@ -77,9 +77,9 @@ class CareersView(View):
             messages.success(request, "Thank you for your application! We'll contact you soon!")
             return redirect('home')
         else:
-            logger.error("FOUND ERRORS ON CAREER FORM: {}".format(form.errors))
+            logger.error(F"FOUND ERRORS ON CAREER FORM: {form.errors}")
             messages.error(request, "We found errors on form, please check them and try again!")
-            messages.warning(request, "{}".format(form.errors))
+            messages.warning(request, F"{form.errors}")
             return render(request, self.template)
 
 
