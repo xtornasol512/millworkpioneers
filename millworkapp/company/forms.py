@@ -1,3 +1,4 @@
+''' Forms for Millworkpioneer project '''
 from django import forms
 from django.conf import settings
 from django.core.mail import send_mail
@@ -27,7 +28,6 @@ class ContactForm(forms.Form):
 
         except Exception as e:
             logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))
-            raise e
 
         else:
             logger.info("Success send email from :{}, email:{}".format(name, email))
@@ -78,24 +78,70 @@ class QuoteForm(forms.ModelForm):
 
 
 INSTALLATION_CHOICES = (
-    ('0', 'Union'),
-    ('1', 'Seeking Sponsorship'),
+    ('UNION', 'Union'),
+    ('SEEKING SPONSORSHIP', 'Seeking Sponsorship'),
 )
 
 OFFICE_CHOICES = (
-    ('0', 'Estimating Department'),
-    ('1', 'Project Management'),
-    ('2', 'HR Department'),
-    ('3', 'IT Department'),
-    ('4', 'Basic Application'),
+    ('ESTIMATING DEPARTMENT', 'Estimating Department'),
+    ('PROJECT MANAGEMENT', 'Project Management'),
+    ('HR DEPARTMENT', 'HR Department'),
+    ('IT DEPARTMENT', 'IT Department'),
+    ('BASIC APPLICATION', 'Basic Application'),
+)
+
+FINISH_CARPENTER_CHOICES =(
+    ('YES', 'YES'),
+    ('NO', 'NO'),
+
 )
 
 
 class CareerForm(forms.Form):
     ''' Career Form '''
-
+    name = forms.CharField(max_length=255)
+    email = forms.EmailField(required=True)
+    phone = forms.CharField(max_length=20, required=False)
+    message = forms.CharField(max_length=300,widget=forms.Textarea, required=False)
     installation = forms.ChoiceField(choices=INSTALLATION_CHOICES)
+    union_ubc_number = forms.CharField(max_length=100, required=False)
     office = forms.ChoiceField(choices=OFFICE_CHOICES)
+    finish_carpenter = forms.ChoiceField(choices=FINISH_CARPENTER_CHOICES)
+    years_of_experience = forms.CharField(max_length=20, required=False)
+
+    def send_mail(self):
+        ''' Custom send mail for career form  '''
+        data = self.cleaned_data
+        try:
+            email = data["email"]
+            name = data["name"]
+            subject = F"Career application form, email:{data['email']}, name: {data['name']}"
+            message = F"""Somebody send an application from website and below is the info:
+                        Name: {data['name']}
+                        Email: {data['email']}
+                        Phone: {data.get('phone', 'N/A')}
+                        Installation: {data['installation']}
+                        Union or UBC number: {data.get('union_ubc_number', 'N/A')}
+                        Office: {data['office']}
+                        Finish carpenter: {data['finish_carpenter']}
+                        Years of experience: {data.get('years_of_experience', 'N/A')}
+                        Message:
+                        {data.get('message', 'No message')}
+                        """
+
+            from_email = settings.WORKING_EMAIL
+            to_email = settings.ADMIN_EMAIL
+
+            if settings.DEBUG:
+                logger.info(F"EMAIL MSG: {message}")
+
+            send_mail(subject, message, from_email, [to_email], fail_silently=False)
+
+        except Exception as e:
+            logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))
+
+        else:
+            logger.info("Success receive email:{}".format(email))
 
 
 
