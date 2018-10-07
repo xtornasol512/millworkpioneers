@@ -48,6 +48,9 @@
     },
     "ADMIN_EMAIL": {
       "required": true
+    },
+    "LOAD_FIXTURES": {
+      "required": true
     }
   },
   "formation": {

@@ -5,6 +5,9 @@ echo "=> Performing database migrations..."
 python millworkapp/manage.py migrate --noinput
 
 echo "=> Load data..."
-python millworkapp/manage.py loaddata millworkapp/fixtures/initial_data.json
-
-echo "=> END Post compile scripts"
+if [ $LOAD_FIXTURES == True ]; then
+    python millworkapp/manage.py loaddata millworkapp/fixtures/initial_data.json
+    echo "=> END Post compile scripts!"
+else
+    echo "=> Automigrate is False!"
+fi
