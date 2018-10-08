@@ -19,6 +19,11 @@ class Review(Timestampable, models.Model):
     #                                   format='JPEG',
     #                                   options={'quality': 60})
 
+    class Meta:
+        ''' Custom Model metadata '''
+        verbose_name_plural = "Reviews(★★★★★)"
+        ordering = ['-created_at']
+
     def __str__(self):
         ''' Get name '''
         return self.name
@@ -32,7 +37,7 @@ class Tag(Timestampable, models.Model):
     class Meta:
         ''' Custom Model metadata '''
         verbose_name_plural = "Photo Tags"
-        ordering = ['created_at']
+        ordering = ['-created_at']
 
     def __str__(self):
         ''' Return string data '''
@@ -50,7 +55,7 @@ class Photo(Timestampable, models.Model):
     class Meta:
         ''' Custom Model metadata '''
         verbose_name_plural = "Gallery Photos"
-        ordering = ['created_at']
+        ordering = ['-created_at']
 
     def __str__(self):
         ''' Return string data '''
@@ -77,7 +82,7 @@ class Project(Timestampable, models.Model):
     class Meta:
         ''' Custom Model metadata '''
         verbose_name_plural = "Millwork Projects"
-        ordering = ['created_at']
+        ordering = ['-created_at']
 
     def __str__(self):
         ''' Return string data '''
@@ -95,7 +100,7 @@ class Service(Timestampable, models.Model):
     class Meta:
         ''' Custom Model metadata '''
         verbose_name_plural = "Millwork Services"
-        ordering = ['created_at']
+        ordering = ['-created_at']
 
     def __str__(self):
         ''' Return string data '''
