@@ -69,7 +69,7 @@ class CareersView(View):
     context = {}
 
     def get_page_settings(self):
-        if CareersPage.objects.first().exists():
+        if CareersPage.objects.first():
             return CareersPage.objects.first()
         else:
             return None
