@@ -4,11 +4,12 @@
 
 {% block content %}
   <!-- Title Page -->
-  <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static "components/contact_us.jpg" %});">
-    <h2 class="tit6 t-center">
-      Our Projects
-    </h2>
-  </section>
+  {% if page_settings %}
+    <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({{ page_settings.picture.url }});"><h2 class="tit6 t-center"> Our Projects</h2></section>
+  {% else %}
+    <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static "components/contact_us.jpg" %});"><h2 class="tit6 t-center"> Our Projects</h2></section>
+  {% endif %}
+
   <section>
     <div class="bread-crumb bo5-b p-t-17 p-b-17">
       <div class="container">

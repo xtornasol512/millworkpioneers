@@ -16,11 +16,11 @@
 {% endblock cssblock %}
 {% block content %}
   <!-- Title Page -->
-  <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static "components/contact_us.jpg" %})">
-    <h2 class="tit6 t-center">
-      Careers
-    </h2>
-  </section>
+  {% if careers_page %}
+    <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({{ careers_page.picture.url }});"><h2 class="tit6 t-center">Careers</h2></section>
+  {% else %}
+    <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static "components/contact_us.jpg" %})"><h2 class="tit6 t-center">Careers</h2></section>
+  {% endif %}
 
   <section id="ask-for-quote" class="section-booking bg1-pattern p-t-100 p-b-110">
     <div class="container">
