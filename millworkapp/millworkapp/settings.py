@@ -60,8 +60,10 @@ INSTALLED_APPS = [
     'jet',
 
     'core.apps.CoreConfig',
+    'website.apps.WebsiteConfig',
     'company.apps.CompanyConfig',
     'gallery.apps.GalleryConfig',
+
 
     'django.contrib.admin',
     'django.contrib.auth',
