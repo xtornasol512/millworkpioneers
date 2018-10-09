@@ -5,6 +5,7 @@ from django.contrib import messages
 
 from .forms import ContactForm, QuoteForm, AskMailForm, CareerForm
 from core.utils import logger
+from website.models import CareersPage
 
 
 class ContactFormView(View):
@@ -65,7 +66,9 @@ class AskMailFormView(View):
 class CareersView(View):
     ''' Simple view '''
     template = 'website/careers.html'
-    context = {}
+    context = {
+        'careers_page': CareersPage.objects.first(),
+    }
 
     def get(self, request):
         return render(request, self.template, self.context)
@@ -80,9 +83,5 @@ class CareersView(View):
             logger.error(F"FOUND ERRORS ON CAREER FORM: {form.errors}")
             messages.error(request, "We found errors on form, please check them and try again!")
             messages.warning(request, F"{form.errors}")
-            return render(request, self.template)
-
-
-
-
+            return render(request, self.template, self.context)
 
