@@ -4,7 +4,11 @@ from django.views.generic import ListView, DetailView
 
 from gallery.models import Project
 from company.models import Client
-
+from .models import (
+    AboutPage,
+    ContactPage,
+    ProjectsPage,
+)
 
 def favicon(request):
     ''' Fix favicon '''
@@ -13,14 +17,20 @@ def favicon(request):
 def about(request):
     ''' About View'''
     client_members = Client.objects.all()
+    about_page = AboutPage.objects.first()
     context = {
         'client_members': client_members,
+        "about_page": about_page,
     }
     return render(request, 'website/about.html', context)
 
 
 def contact(request):
     ''' contact View'''
+    contact_page = ContactPage.objects.first()
+    context = {
+        "contact_page": contact_page,
+    }
     return render(request, 'website/contact.html')
 
 
@@ -33,6 +43,12 @@ class ProjectsView(ListView):
     paginate_by = 3
     queryset = Project.objects.display_on_website()
 
+    def get_context_data(self, **kwargs):
+        context = super(ProjectsView, self).get_context_data(**kwargs)
+        context.update({
+            "page_settings": ProjectsPage.objects.first(),
+        })
+        return context
 
 class ProjectsDetail(DetailView):
     ''' Custom View '''
