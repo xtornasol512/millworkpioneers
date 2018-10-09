@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView
 
 from gallery.models import Project
 from company.models import Client
-
+from .models import AboutPage
 
 def favicon(request):
     ''' Fix favicon '''
@@ -13,8 +13,10 @@ def favicon(request):
 def about(request):
     ''' About View'''
     client_members = Client.objects.all()
+    about_page = AboutPage.objects.first()
     context = {
         'client_members': client_members,
+        "about_page": about_page,
     }
     return render(request, 'website/about.html', context)
 
