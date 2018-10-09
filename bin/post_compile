@@ -7,6 +7,7 @@ python millworkapp/manage.py migrate --noinput
 echo "=> Load data..."
 if [ $LOAD_FIXTURES == True ]; then
     python millworkapp/manage.py loaddata millworkapp/fixtures/initial_data.json
+    python millworkapp/manage.py loaddata millworkapp/fixtures/photo_pages.json
     echo "=> END Post compile scripts!"
 else
     echo "=> Automigrate is False!"
