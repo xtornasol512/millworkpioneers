@@ -66,12 +66,16 @@ class AskMailFormView(View):
 class CareersView(View):
     ''' Simple view '''
     template = 'website/careers.html'
-    context = {
-        'careers_page': CareersPage.objects.first(),
-    }
+    context = {}
+
+    def get_page_settings(self):
+        if CareersPage.objects.first().exists():
+            return CareersPage.objects.first()
+        else:
+            return None
 
     def get(self, request):
-        return render(request, self.template, self.context)
+        return render(request, self.template, self.context.update({"careers_page": self.get_page_settings()}))
 
     def post(self, request):
         form = CareerForm(request.POST)
@@ -83,5 +87,5 @@ class CareersView(View):
             logger.error(F"FOUND ERRORS ON CAREER FORM: {form.errors}")
             messages.error(request, "We found errors on form, please check them and try again!")
             messages.warning(request, F"{form.errors}")
-            return render(request, self.template, self.context)
+            return render(request, self.template, self.context.update({"careers_page": self.get_page_settings()}))
 
