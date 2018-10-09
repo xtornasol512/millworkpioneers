@@ -9,26 +9,27 @@
     <div class="wrap-slick1">
       <div class="slick1">
         {# TODO add gallery #}
-        <div class="item-slick1 item1-slick1" style="background-image: url({% static "components/slide01.jpg" %});">
+        <!-- <div class="item-slick1 item1-slick1" style="background-image: url({% static "components/slide01.jpg" %});">
           <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
             <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
               Welcome
             </span>
           </div>
-        </div>
-
-        <div class="item-slick1 item2-slick1" style="background-image: url({% static "components/slide_02.jpg" %});">
-          <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-          </div>
-        </div>
-
-        <div class="item-slick1 item3-slick1" style="background-image: url({% static "components/slide_03.jpg" %});">
-          <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-          </div>
-        </div>
-
+        </div> -->
+        {% if  homepage.page_photos.all %}
+          {% for photo in homepage.page_photos.all %}
+            <div class="item-slick1 item1-slick1" style="background-image: url({{ photo.picture.url }});">
+              <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+            <div class="item-slick1 item1-slick1" style="background-image: url({% static "components/slide01.jpg" %});">
+              <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+              </div>
+            </div>
+        {% endif %}
       </div>
-
       <div class="wrap-slick1-dots"></div>
     </div>
   </section>
