@@ -87,6 +87,9 @@ OFFICE_CHOICES = (
     ('PROJECT MANAGEMENT', 'Project Management'),
     ('HR DEPARTMENT', 'HR Department'),
     ('IT DEPARTMENT', 'IT Department'),
+    ('FINISH CARPENTER', 'Finish Carpenter'),
+    ('FOREMAN', 'Foreman'),
+    ('SAFETY MANAGEMENT', 'Safety Management'),
     ('BASIC APPLICATION', 'Basic Application'),
 )
 
