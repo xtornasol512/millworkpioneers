@@ -8,7 +8,7 @@ class ProjectQueryset(models.QuerySet):
         return self.filter(is_display_on_website=True)
 
     def all_completed(self):
-        return self.display_on_website().filter(status_project="COMPLETED")
+        return self.display_on_website()
 
     def all_in_progress(self):
-        return self.display_on_website().filter(status_project="IN PROGRESS")
+        return self.display_on_website()

@@ -21,6 +21,7 @@ sudo -i -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE mydb TO vagrant;"
 echo "=> Installing requirements..."
 sudo pip install -r /vagrant/requirements.txt
 
-sudo ntpdate -u in.pool.ntp.org
+sudo service -u ntp stop
+sudo ntpdate -u pool.ntp.org
 
 echo "=> End config box..."
