@@ -37,16 +37,6 @@
                 <a href="{% url 'project_detail' project.slug %}">
                   <img src="{{ project.main_picture.url }}" alt="{{ project.client }}">
                 </a>
-
-                <div class="date-blo4 flex-col-c-m">
-                  <span class="txt30 m-b-4">
-                    {{ project.created_at|date:"d" }}
-                  </span>
-
-                  <span class="txt31">
-                    {{ project.created_at|date:"M Y" }}
-                  </span>
-                </div>
               </div>
 
               <div class="text-blo4 p-t-33">
