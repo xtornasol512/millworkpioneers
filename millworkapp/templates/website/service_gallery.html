@@ -1,0 +1,85 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block title %}{{ service.name }}{% endblock title %}
+
+{% block content %}
+  <!-- Title Page -->
+  <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({{ service.main_picture.url }})">
+    <h2 class="tit6 t-center">
+      {{ service.title }}
+    </h2>
+  </section>
+
+<!-- Content page -->
+  <section>
+    <div class="bread-crumb bo5-b p-t-17 p-b-17">
+      <div class="container">
+        <a href="{% url 'home' %}" class="txt27" title="Go to Home">
+          Home
+        </a>
+
+        <span class="txt29 m-l-10 m-r-10">/</span>
+
+        <a href="#" class="txt27" title="Go to Services">
+          Services
+        </a>
+
+        <span class="txt29 m-l-10 m-r-10">/</span>
+
+        <span class="txt29">
+          {{ service.title }}
+        </span>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 col-lg-9">
+          <div class="p-t-80 p-b-124 p-r-50 h-full p-r-0-md bo-none-md">
+            <!-- Block4 -->
+            <div class="blo4 p-b-63">
+
+              <!-- - -->
+              <div class="text-blo4 p-t-33">
+                <h4 class="p-b-16">
+                  <a href="#" class="tit9">{{ service.title }}</a>
+                </h4>
+
+                <p>
+                  {{ service.description }}
+                </p>
+                <br />
+
+                <!-- BEGIN Gallery  -->
+                <h4>
+                    Photo Gallery
+                </h4>
+                <div class="wrap-gallery isotope-grid flex-w p-l-25 p-r-25">
+                  {% for photo in  service.photos.all %}
+                    <!-- PHOTO  -->
+                    <div class="item-gallery isotope-item bo-rad-10 hov-img-zoom events guests">
+                      <img src="{{ photo.picture.url }}" alt="{{ photo.description }}">
+
+                      <div class="overlay-item-gallery trans-0-4 flex-c-m">
+                        <a class="btn-show-gallery flex-c-m fa fa-search" href="{{ photo.picture.url }}" data-lightbox="gallery"></a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div><!-- END Gallery  -->
+
+              </div><!-- text block-->
+            </div>
+          </div>
+        </div> <!-- col -->
+      </div><!-- row -->
+    </div><!-- Container -->
+
+  </section>
+
+
+{% endblock content %}
+
+{% block jsbeforemain %}
+  <script type="text/javascript" src="{% static "vendor/isotope/isotope.pkgd.min.js" %}"></script>
+{% endblock jsbeforemain %}
+

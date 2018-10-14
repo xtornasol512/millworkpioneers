@@ -51,6 +51,7 @@ class Photo(Timestampable, models.Model):
     picture = models.ImageField(upload_to='gallery_photos')
     tags = models.ManyToManyField("gallery.Tag", related_name="photos", blank=True)
     project = models.ForeignKey("gallery.Project", models.SET_NULL, blank=True, null=True, related_name="photos", help_text='Select one project')
+    service = models.ForeignKey("gallery.Service", models.SET_NULL, blank=True, null=True, related_name="photos", help_text='Select one Service')
 
     class Meta:
         ''' Custom Model metadata '''
@@ -93,7 +94,9 @@ class Project(Timestampable, models.Model):
 class Service(Timestampable, models.Model):
     ''' Service '''
     name = models.CharField("Name", max_length=255, default="")
+    slug = models.SlugField("Url slug", max_length=255, blank=True, default="", help_text='This field is auto-generated')
     description = models.TextField(blank=True, default="")
+    is_display_on_website = models.BooleanField("Will display on site?", default=True, help_text='Select "Yes" to display on site')
 
     main_picture =  models.ImageField("Main picture for project", upload_to='services', blank=True)
 

@@ -62,12 +62,14 @@ class ProjectAdmin(ImageRenderAdmin, admin.ModelAdmin):
 
 class ServiceAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom admin model '''
+    inlines = [PhotoInline, ]
     list_display_links = list_display = [
         'name',
         'description',
         'created_at',
         'updated_at',
     ]
+    prepopulated_fields = {"slug": ("name",)}
 
 
 admin.site.register(Review, ReviewAdmin)

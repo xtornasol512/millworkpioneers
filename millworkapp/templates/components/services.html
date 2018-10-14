@@ -22,7 +22,7 @@
                   <img src="{{ service.main_picture.url }}" alt="{{ service.description }}">
 
                   <!-- Button2 -->
-                  <a href="#" class="btn2 flex-c-m txt5 ab-c-m size4" title="{{ service.description }}">
+                  <a href="{% url 'service_gallery' service.slug %}" class="btn2 flex-c-m txt5 ab-c-m size4" title="{{ service.description }}">
                     {{ service.name }}
                   </a>
                 </div>
