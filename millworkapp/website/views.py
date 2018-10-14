@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.views.generic import ListView, DetailView
 
-from gallery.models import Project
+from gallery.models import Project, Service
 from company.models import Client
 from .models import (
     AboutPage,
@@ -56,4 +56,11 @@ class ProjectsDetail(DetailView):
     slug_name = 'slug'
     model = Project
     context_object_name = 'project'
+
+
+class ServiceGallery(DetailView):
+    template_name = 'website/service_gallery.html'
+    slug_name = 'slug'
+    model = Service
+    context_object_name = 'service'
 

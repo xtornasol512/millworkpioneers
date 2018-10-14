@@ -4,7 +4,7 @@ from django.conf.urls import include, url
 from .views import about, contact, favicon
 from company.views import ContactFormView, AskQuoteFormView, AskMailFormView, CareersView
 from gallery.views import gallery_page
-from website.views import ProjectsView, ProjectsDetail
+from website.views import ProjectsView, ProjectsDetail, ServiceGallery
 
 
 urlpatterns = [
@@ -18,4 +18,6 @@ urlpatterns = [
     url(r'^projects$', ProjectsView.as_view(), name='projects'),
     url(r'^careers/', CareersView.as_view(), name='careers'),
     url(r'^projects/(?P<slug>[\w-]+)$', ProjectsDetail.as_view(), name='project_detail'),
+    # ServiceGallery
+    url(r'^services/(?P<slug>[\w-]+)$', ServiceGallery.as_view(), name='service_gallery'),
 ]
