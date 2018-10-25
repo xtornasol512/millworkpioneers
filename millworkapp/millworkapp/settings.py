@@ -44,18 +44,23 @@ AWS_SES_ACCESS_KEY_ID = os.environ['AWS_SES_ACCESS_KEY_ID']
 AWS_SES_SECRET_ACCESS_KEY = os.environ['AWS_SES_SECRET_ACCESS_KEY']
 AWS_SES_REGION = 'us-west-2'
 
+
+EMAIL_HOST = os.environ["EMAIL_HOST"]
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
+EMAIL_PORT = os.environ["EMAIL_PORT"]
 EMAIL_USE_TLS = ast.literal_eval(os.environ['EMAIL_USE_TLS'])
 WORKING_EMAIL = os.environ['WORKING_EMAIL']
 ADMIN_EMAIL = os.environ['ADMIN_EMAIL']
 
 DEFAULT_FILE_STORAGE = 'millworkapp.storage_backends.MediaStorage'
 
-if not DEBUG:
-    EMAIL_BACKEND = 'django_amazon_ses.EmailBackend'
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# Application definition
+EMAIL_BACKEND_CONSOLE = ast.literal_eval(os.environ['EMAIL_BACKEND_CONSOLE'])
 
+if EMAIL_BACKEND_CONSOLE:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Application definition
 INSTALLED_APPS = [
     'jet',
 
