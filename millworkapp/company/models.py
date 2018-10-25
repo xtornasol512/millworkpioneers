@@ -15,6 +15,7 @@ class Company(Timestampable, models.Model):
     email = models.EmailField("Email", max_length=255, blank=True)
     headline = models.CharField("Headline", max_length=255, blank=True, default="")
     address = models.CharField("Address", max_length=255, blank=True, default="")
+    gmaps = models.URLField("Google Maps Link", blank=True)
     facebook = models.CharField("Facebook", max_length=255, blank=True, default="")
     twitter = models.CharField("Twitter", max_length=255, blank=True, default="")
     linkedin = models.CharField("Linkedin", max_length=255, blank=True, default="")
