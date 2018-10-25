@@ -9,15 +9,15 @@ def home(request):
     REVIEW_PROJECTS = 6
 
     reviews = Review.objects.all()[:REVIEW_PROJECTS]
-    projects = Project.objects.all_completed()[:TOTAL_PROJECTS]
-    in_progress = Project.objects.all_in_progress()[:TOTAL_PROJECTS]
+    # projects = Project.objects.all_completed()[:TOTAL_PROJECTS]
+    # in_progress = Project.objects.all_in_progress()[:TOTAL_PROJECTS]
     services = Service.objects.all()
     homepage = HomePage.objects.first()
 
     context = {
         "reviews" : reviews,
-        "projects" : projects,
-        "in_progress" : in_progress,
+        # "projects" : projects,
+        # "in_progress" : in_progress,
         "services" : services,
         "homepage" : homepage,
     }
