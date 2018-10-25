@@ -37,6 +37,7 @@ class AskQuoteFormView(View):
 
         if form.is_valid():
             quote = form.save()
+            form.send_mail()
             messages.success(request, "Successful ask quote!")
             return redirect('home')
         else:

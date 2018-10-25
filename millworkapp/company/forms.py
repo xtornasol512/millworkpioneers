@@ -9,20 +9,25 @@ from .models import Quote
 
 class ContactForm(forms.Form):
     '''  Contact form '''
-    name = forms.CharField(max_length=255)
+    name = forms.CharField(max_length=255, required=True)
     email = forms.EmailField(required=True)
     phone = forms.CharField(max_length=20, required=False)
-    message = forms.CharField(widget=forms.Textarea)
+    message = forms.CharField(widget=forms.Textarea, required=False)
 
     def send_mail(self):
         ''' Send emails '''
+        data = self.cleaned_data
         try:
-            subject = "Contact Form Request"
-            name = self.cleaned_data["name"]
-            email = self.cleaned_data["email"]
-            message = self.cleaned_data["message"]
+            subject = F"Contact Form Request, by {data['name']}"
+            message = F"""Somebody send an contact form request from website and below is the info:
+                        Name: {data['name']}
+                        Email: {data['email']}
+                        Phone: {data.get('phone', 'N/A')}
+                        Message:
+                        {data.get('message', 'No message')}
+                        """
             from_email = settings.WORKING_EMAIL
-            to_email = settings.ADMIN_EMAIL
+            to_email = settings.WORKING_EMAIL
 
             send_mail(subject, message, from_email, [to_email], fail_silently=False)
 
@@ -30,7 +35,7 @@ class ContactForm(forms.Form):
             logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))
 
         else:
-            logger.info("Success send email from :{}, email:{}".format(name, email))
+            logger.info("Success send email from :{}, email:{}".format(data['name'], data['email']))
 
 
 class AskMailForm(forms.Form):
@@ -41,16 +46,15 @@ class AskMailForm(forms.Form):
         ''' Send email '''
         try:
             email = self.cleaned_data["ask_email"]
-            subject = "Ask Email"
-            message = "Somebody ask for suscription: {}".format(email)
+            subject = "Somebody use ASK EMAIL: {}".format(email)
+            message = "Somebody ask for suscription with his/her email: {}".format(email)
             from_email = settings.WORKING_EMAIL
-            to_email = settings.ADMIN_EMAIL
+            to_email = settings.WORKING_EMAIL
 
             send_mail(subject, message, from_email, [to_email], fail_silently=False)
 
         except Exception as e:
             logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))
-            raise e
 
         else:
             logger.info("Success receive email:{}".format(email))
@@ -75,6 +79,35 @@ class QuoteForm(forms.ModelForm):
             "prevailing_wage",
             "description",
         ]
+
+    def send_mail(self):
+        ''' Send mail '''
+        data = self.cleaned_data
+        try:
+            email = self.cleaned_data["email"]
+            subject = "Somebody send an ASK QUOTE FORM: {}".format(email)
+            message = F"""Somebody send a quote form from website and below is the info:
+                        Name: {data['name']}
+                        Email: {data['email']}
+                        Phone: {data.get('phone', 'N/A')}
+                        Company: {data['company']}
+                        Project: {data.get('project', 'N/A')}
+                        Bid Due: {data['bid_due'].strftime("%A, %d. %B %Y")}
+                        Start Date: {data['start_date'].strftime("%A, %d. %B %Y")}
+                        Prevailing Wage: {data.get('prevailing_wage', 'N/A')}
+                        Description:
+                        {data.get('description', 'No message')}
+                        """
+            from_email = settings.WORKING_EMAIL
+            to_email = settings.WORKING_EMAIL
+
+            send_mail(subject, message, from_email, [to_email], fail_silently=False)
+
+        except Exception as e:
+            logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))
+
+        else:
+            logger.info("Success receive email:{}".format(email))
 
 
 INSTALLATION_CHOICES = (
@@ -133,7 +166,7 @@ class CareerForm(forms.Form):
                         """
 
             from_email = settings.WORKING_EMAIL
-            to_email = settings.ADMIN_EMAIL
+            to_email = settings.WORKING_EMAIL
 
             if settings.DEBUG:
                 logger.info(F"EMAIL MSG: {message}")

@@ -40,7 +40,7 @@ class ProjectsView(ListView):
     model = Project
     template_name = 'website/projects.html'
     context_object_name = 'projects'
-    paginate_by = 3
+    paginate_by = 6
     queryset = Project.objects.display_on_website()
 
     def get_context_data(self, **kwargs):
