@@ -59,6 +59,8 @@ EMAIL_BACKEND_CONSOLE = ast.literal_eval(os.environ['EMAIL_BACKEND_CONSOLE'])
 
 if EMAIL_BACKEND_CONSOLE:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django_amazon_ses.EmailBackend'
 
 # Application definition
 INSTALLED_APPS = [
