@@ -517,7 +517,7 @@ input[type="date" i] {
 -----------------------------------------------------------
 */
 .logo {
-  height: 50px;
+  height: 100px;
 }
 
 .logo > a{
@@ -696,8 +696,9 @@ input[type="date" i] {
   .social {padding-right: 0px;}
 
   .logo {
-    height: 45px;
+    height: 80px;
   }
+
 }
 
 @media (max-width: 992px) {
@@ -709,8 +710,6 @@ input[type="date" i] {
     height: 100px;
   }
 }
-
-
 
 
 /*[ Sidebar ]
@@ -1631,7 +1630,6 @@ body {padding-right: 0px !important;}
     background-color: #f8d7da;
     border-color: #f5c6cb;
   }
-
 
 .tit2{
   color: hsl(0, 0%, 58%);
