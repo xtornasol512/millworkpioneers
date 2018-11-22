@@ -653,6 +653,13 @@ input[type="date" i] {
   text-decoration: none;
 }
 
+/* Main support */
+
+.services{
+  height: 300px;
+}
+
+/* -----  */
 
 /*[ Social ]
 -----------------------------------------------------------
