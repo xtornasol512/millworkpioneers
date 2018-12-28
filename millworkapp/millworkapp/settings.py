@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
     'company.apps.CompanyConfig',
     'gallery.apps.GalleryConfig',
+    'woodwork.apps.WoodworkConfig',
 
 
     'django.contrib.admin',
