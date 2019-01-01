@@ -65,6 +65,11 @@ class Photo(Timestampable, models.Model):
 
 class Project(Timestampable, models.Model):
     ''' Project Model '''
+    BRAND_OPTIONS = (
+        ("MILLWORK", 'Millwork'),
+        ("WOODWORK", 'Woodwork'),
+    )
+    brand = models.CharField("Company brand", max_length=100, choices=BRAND_OPTIONS, default="MILLWORK", help_text="Select the correct!")
     title = models.CharField("Title of project", max_length=255, default="")
     slug = models.SlugField("Url slug", max_length=255, blank=True, default="", help_text='This field is auto-generated')
 
