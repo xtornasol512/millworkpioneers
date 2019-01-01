@@ -12,3 +12,9 @@ class ProjectQueryset(models.QuerySet):
 
     def all_in_progress(self):
         return self.display_on_website()
+
+    def is_woodwork(self):
+        return self.filter(brand="WOODWORK")
+
+    def is_millwork(self):
+        return self.filter(brand="MILLWORK")

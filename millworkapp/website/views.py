@@ -41,7 +41,7 @@ class ProjectsView(ListView):
     template_name = 'website/projects.html'
     context_object_name = 'projects'
     paginate_by = 6
-    queryset = Project.objects.display_on_website()
+    queryset = Project.objects.display_on_website().is_millwork()
 
     def get_context_data(self, **kwargs):
         context = super(ProjectsView, self).get_context_data(**kwargs)
