@@ -5,6 +5,10 @@
         <div class="p-t-80 p-b-124 h-full p-r-50 p-r-0-md bo-none-md">
           <div class="row">
 
+          {% if not projects %}
+            <h3>No published projects :(</h3>
+          {% endif %}
+
           {% for project in projects %}
           <!-- Begin Project -->
            {# Blog Post #}
