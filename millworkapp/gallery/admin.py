@@ -34,6 +34,7 @@ class PhotoAdmin(ImageRenderAdmin, admin.ModelAdmin):
         'id',
         'title',
         'description',
+        'project',
     ]
     readonly_fields = ['id', ]
 
