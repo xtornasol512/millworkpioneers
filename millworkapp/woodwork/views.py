@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 
 from .models import WoodworkPage
@@ -19,4 +19,9 @@ class WoodworkView(ListView):
             "page_settings": WoodworkPage.objects.first(),
         })
         return context
+
+
+def woodwork_redirect(response):
+    ''' A redirect to woodwork site'''
+    return redirect('woodwork')
 
