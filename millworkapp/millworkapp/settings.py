@@ -53,6 +53,10 @@ EMAIL_USE_TLS = ast.literal_eval(os.environ['EMAIL_USE_TLS'])
 WORKING_EMAIL = os.environ['WORKING_EMAIL']
 ADMIN_EMAIL = os.environ['ADMIN_EMAIL']
 
+if not DEBUG:
+    SECURE_SSL_REDIRECT = ast.literal_eval(os.environ['SSL_STATE'])
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 DEFAULT_FILE_STORAGE = 'millworkapp.storage_backends.MediaStorage'
 
 EMAIL_BACKEND_CONSOLE = ast.literal_eval(os.environ['EMAIL_BACKEND_CONSOLE'])
