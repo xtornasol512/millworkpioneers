@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^projects/(?P<slug>[\w-]+)$', ProjectsDetail.as_view(), name='project_detail'),
     # ServiceGallery
     url(r'^services/(?P<slug>[\w-]+)$', ServiceGallery.as_view(), name='service_gallery'),
-    url(r'^woodwork$', WoodworkView.as_view(), name='woodwork'),
+    url(r'^woodwork-pioneers$', WoodworkView.as_view(), name='woodwork'),
 
 ]

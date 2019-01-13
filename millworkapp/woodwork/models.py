@@ -9,7 +9,7 @@ class WoodworkPage(Timestampable, WebsiteModelPage, models.Model):
     title = models.CharField("Page title",blank=True, max_length=255, default="Wodwork Page")
 
     class Meta:
-        verbose_name_plural = "Woodwork Page"
+        verbose_name_plural = "Woodwork Pioneers Page"
         ordering = ['-created_at']
 
     def __str__(self):
