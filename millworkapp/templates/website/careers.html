@@ -36,7 +36,7 @@
             </h3>
           </div>
 
-          <form class="wrap-form-booking" method="POST" action="{% url 'careers' %}">{% csrf_token %}
+          <form class="wrap-form-booking" method="POST" action="{% url 'careers' %}" enctype="multipart/form-data">{% csrf_token %}
             <div class="row">
               <div class="col-md-6">
 
@@ -137,6 +137,14 @@
                   <input class="bo-rad-10 sizefull txt10 p-l-20" type="number" name="years_of_experience" placeholder="Years of experience (Optional)">
                 </div>
 
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="exampleInputFile">Upload application pdf</label>
+                  <input type="file" class="form-control-file" id="exampleInputFile" name="file" aria-describedby="fileHelp">
+                  <small id="fileHelp" class="form-text text-muted">(Optional)</small>
+                </div>
               </div>
             </div>
 

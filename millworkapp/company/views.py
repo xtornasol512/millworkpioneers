@@ -81,9 +81,10 @@ class CareersView(View):
         return render(request, self.template, self.context.update({"careers_page": self.get_page_settings()}))
 
     def post(self, request):
-        form = CareerForm(request.POST)
+        form = CareerForm(request.POST, request.FILES)
         if form.is_valid():
-            form.send_mail()
+            attach_file = request.FILES.get("file", False)
+            form.send_mail(attach_file)
             messages.success(request, "Thank you for your application! We'll contact you soon!")
             return redirect('home')
         else:

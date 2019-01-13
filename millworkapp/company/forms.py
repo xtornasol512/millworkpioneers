@@ -150,8 +150,9 @@ class CareerForm(forms.Form):
     office = forms.ChoiceField(choices=OFFICE_CHOICES)
     finish_carpenter = forms.ChoiceField(choices=FINISH_CARPENTER_CHOICES)
     years_of_experience = forms.CharField(max_length=20, required=False)
+    file = forms.FileField(required=False)
 
-    def send_mail(self):
+    def send_mail(self, attach_file):
         ''' Custom send mail for career form  '''
         data = self.cleaned_data
         try:
@@ -177,7 +178,13 @@ class CareerForm(forms.Form):
             if settings.DEBUG:
                 logger.info(F"EMAIL MSG: {message}")
 
-            send_mail(subject, message, from_email, [to_email], fail_silently=False)
+            sent_email = EmailMultiAlternatives(subject, message, from_email, [to_email])
+
+            if attach_file:
+                sent_email.attach(attach_file.name, attach_file.read(), attach_file.content_type)
+
+            sent_email.send()
+            import code; code.interact(local=locals())
 
         except Exception as e:
             logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))
