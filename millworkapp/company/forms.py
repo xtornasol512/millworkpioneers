@@ -18,7 +18,7 @@ class ContactForm(forms.Form):
         ''' Send emails '''
         data = self.cleaned_data
         try:
-            subject = F"Contact Form Request, by {data['name']}"
+            subject = F"[MillworkPioneers Website] Contact Form Request, by {data['name']}"
             message = F"""Somebody send an contact form request from website and below is the info:
                         Name: {data['name']}
                         Email: {data['email']}
@@ -46,7 +46,7 @@ class AskMailForm(forms.Form):
         ''' Send email '''
         try:
             email = self.cleaned_data["ask_email"]
-            subject = "Somebody use ASK EMAIL: {}".format(email)
+            subject = "[MillworkPioneers Website] ASK EMAIL: {}".format(email)
             message = "Somebody ask for suscription with his/her email: {}".format(email)
             from_email = settings.WORKING_EMAIL
             to_email = settings.WORKING_EMAIL
@@ -86,7 +86,7 @@ class QuoteForm(forms.ModelForm):
         data = self.cleaned_data
         try:
             email = self.cleaned_data["email"]
-            subject = "Somebody send an ASK QUOTE FORM: {}".format(email)
+            subject = "[MillworkPioneers Website] ASK QUOTE FORM: {}".format(email)
             message = F"""Somebody send a quote form from website and below is the info:
                         Name: {data['name']}
                         Email: {data['email']}
@@ -157,7 +157,7 @@ class CareerForm(forms.Form):
         try:
             email = data["email"]
             name = data["name"]
-            subject = F"Career application form, email:{data['email']}, name: {data['name']}"
+            subject = F"[MillworkPioneers Website] Career application form, email:{data['email']}, name: {data['name']}"
             message = F"""Somebody send an application from website and below is the info:
                         Name: {data['name']}
                         Email: {data['email']}
