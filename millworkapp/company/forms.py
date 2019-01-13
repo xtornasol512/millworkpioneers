@@ -27,7 +27,7 @@ class ContactForm(forms.Form):
                         {data.get('message', 'No message')}
                         """
             from_email = settings.WORKING_EMAIL
-            to_email = settings.WORKING_EMAIL
+            to_email = settings.ADMIN_EMAIL
 
             send_mail(subject, message, from_email, [to_email], fail_silently=False)
 
@@ -49,7 +49,7 @@ class AskMailForm(forms.Form):
             subject = "[MillworkPioneers Website] ASK EMAIL: {}".format(email)
             message = "Somebody ask for suscription with his/her email: {}".format(email)
             from_email = settings.WORKING_EMAIL
-            to_email = settings.WORKING_EMAIL
+            to_email = settings.ADMIN_EMAIL
 
             send_mail(subject, message, from_email, [to_email], fail_silently=False)
 
@@ -100,7 +100,7 @@ class QuoteForm(forms.ModelForm):
                         {data.get('description', 'No message')}
                         """
             from_email = settings.WORKING_EMAIL
-            to_email = settings.WORKING_EMAIL
+            to_email = settings.ADMIN_EMAIL
 
             sent_email = EmailMultiAlternatives(subject, message, from_email, [to_email])
 
@@ -172,7 +172,7 @@ class CareerForm(forms.Form):
                         """
 
             from_email = settings.WORKING_EMAIL
-            to_email = settings.WORKING_EMAIL
+            to_email = settings.ADMIN_EMAIL
 
             if settings.DEBUG:
                 logger.info(F"EMAIL MSG: {message}")
