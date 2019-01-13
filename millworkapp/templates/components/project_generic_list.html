@@ -1,0 +1,68 @@
+  <!-- Begin projects-->
+  <section class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8 col-lg-9">
+        <div class="p-t-80 p-b-124 h-full p-r-50 p-r-0-md bo-none-md">
+          <div class="row">
+
+          {% if not projects %}
+            <h3>No published projects :(</h3>
+          {% endif %}
+
+          {% for project in projects %}
+          <!-- Begin Project -->
+           {# Blog Post #}
+            <div class="col-md-4 p-t-30">
+              <!-- Block1 -->
+              <div class="blo1">
+                <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
+                  <a href="{% url 'project_detail' project.slug %}"><img src="{{ project.main_picture.url }}" alt="{{ project.client }}"></a>
+
+                  <div class="time-blog">
+                    {{ project.created_at|date:"d M Y" }}{#21 Dec 2017 #}
+                  </div>
+                </div>
+
+                <div class="wrap-text-blo1 p-t-35">
+                  <a href="{% url 'project_detail' project.slug %}"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                    {{ project.title }}
+                  </h4></a>
+
+                  <a href="{% url 'project_detail' project.slug %}" class="txt4">
+                    Continue Reading
+                    <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true" title="{{ project.title }}"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          <!-- EndProject -->
+          {% endfor %}
+          </div>
+          {% if is_paginated %}
+            <!-- pagination -->
+            <div class="pagination flex-l-m flex-w m-l--6 p-t-25">
+              {% if page_obj.has_previous %}
+                <a class="item-pagination flex-c-m trans-0-4" href="/projects?page={{ page_obj.previous_page_number }}">&laquo;</a>
+              {% else %}
+                <a class="item-pagination flex-c-m trans-0-4 disabled"><span>&laquo;</span></a>
+              {% endif %}
+              {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                  <a class="item-pagination flex-c-m trans-0-4 active-pagination"><span style="color:#fff;">{{ i }} <span class="sr-only">(current)</span></span></a>
+                {% else %}
+                  <a class="item-pagination flex-c-m trans-0-4" href="/projects?page={{ i }}">{{ i }}</a>
+                {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next %}
+                <a class="item-pagination flex-c-m trans-0-4" href="/projects?page={{ page_obj.next_page_number }}">&raquo;</a>
+              {% else %}
+                <a class="item-pagination flex-c-m trans-0-4 disabled"><span>&raquo;</span></a>
+              {% endif %}
+            </div>
+            <!--End pagination -->
+          {% endif %}
+        </div>
+      </div>
+      <!-- End projects-->
+    </div>
+  </section>

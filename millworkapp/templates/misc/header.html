@@ -13,12 +13,13 @@
         </div>
 
         <!-- Menu -->
-        <div class="wrap_menu p-l-45 p-l-0-xl">
+        <div class="wrap_menu">
           <nav class="menu">
             <ul class="main_menu">
               <li><a href="{% url 'home' %}" title="Back to Home">Home</a></li>
               <li><a href="{% url 'gallery' %}" title="Go to Gallery">Gallery</a></li>
-              <li><a href="{% url 'projects' %}" title="Got to Projects">Projects</a></li>
+              <li><a href="{% url 'projects' %}" title="Go to Projects">Projects</a></li>
+              <li><a href="{% url 'woodwork' %}" title="Go to Woodwork">Woodwork</a></li>
               <li><a href="{% url 'careers' %}" title="Apply to Careers">Careers</a></li>
               <li><a href="{% url 'about' %}" title="Meet our team of Millworkpioneers">About</a></li>
               <li><a href="{% url 'contact' %}" title="Get in touch here">Contact</a></li>
@@ -27,7 +28,7 @@
         </div>
 
         <!-- Social -->
-        <div class="social flex-w flex-l-m p-r-20">
+        <div class="social flex-w flex-l-m">
           <a href="{{ company.linkedin }}" title="Official Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
           <a href="{{ company.instagram }}" title="Official Instagram"><i class="fa fa-instagram m-l-21" aria-hidden="true"></i></a>
           <a href="{{ company.facebook }}" title="Official Facebook"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>

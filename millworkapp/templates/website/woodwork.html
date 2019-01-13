@@ -1,0 +1,34 @@
+{% extends "website/base.html" %}
+{% block title %}Woodwork{% endblock title %}
+{% load static %}
+
+{% block content %}
+  <!-- Title Page -->
+  {% if page_settings %}
+    <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({{ page_settings.picture.url }});"><h2 class="tit6 t-center"> Woodwork Pioneers</h2></section>
+  {% else %}
+    <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static "components/contact_us.jpg" %});"><h2 class="tit6 t-center"> Woodwork Pioneers</h2></section>
+  {% endif %}
+
+  <section>
+    <div class="bread-crumb bo5-b p-t-17 p-b-17">
+      <div class="container">
+        <a href="{% url 'home' %}" class="txt27" title="Back to home">
+          Home
+        </a>
+
+        <span class="txt29 m-l-10 m-r-10">/</span>
+
+        <span class="txt29">
+          Woodwork Projects
+        </span>
+      </div>
+    </div>
+    <section class="mx-auto" style="width: 350px;">
+      <p><img width="350px" src="{% static "brand/woodwork_logo.png" %}" alt="Woodwork Logo"></p>
+    </section>
+    {% include "components/project_generic_list.html" %}
+  </section>
+
+
+{% endblock content%}
