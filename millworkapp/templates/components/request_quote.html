@@ -14,7 +14,7 @@
           </h3>
         </div>
 
-        <form class="wrap-form-booking" method="POST" action="{% url 'askquote_form' %}">{% csrf_token %}
+        <form class="wrap-form-booking" method="POST" action="{% url 'askquote_form' %}" enctype="multipart/form-data">{% csrf_token %}
           <div class="row">
             <div class="col-md-6">
 
@@ -101,10 +101,18 @@
             </div>
           </div>
 
-          <div class="wrap-btn-booking flex-c-m m-t-6">
-              <!-- Brief Message -->
-              <textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="description" placeholder="Some description of the project" required></textarea>
+          <div class="wrap-btn-booking">
+            <div class="form-group">
+              <label for="exampleInputFile">Add a file attachment</label>
+              <input type="file" class="form-control-file" id="exampleInputFile" name="file" aria-describedby="fileHelp">
+              <small id="fileHelp" class="form-text text-muted">(Optional)</small>
             </div>
+          </div>
+
+          <div class="wrap-btn-booking flex-c-m m-t-6">
+            <!-- Brief Message -->
+            <textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="description" placeholder="Some description of the project" required></textarea>
+          </div>
 
           <div class="wrap-btn-booking flex-c-m m-t-6">
             <!-- Button3 -->

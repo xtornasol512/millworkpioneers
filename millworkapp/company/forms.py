@@ -1,7 +1,7 @@
 ''' Forms for Millworkpioneer project '''
 from django import forms
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
 
 from core.utils import logger
 from .models import Quote
@@ -65,6 +65,7 @@ class QuoteForm(forms.ModelForm):
 
     start_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS)
     bid_due = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS)
+    file = forms.FileField(required=False)
 
     class Meta:
         model = Quote
@@ -80,7 +81,7 @@ class QuoteForm(forms.ModelForm):
             "description",
         ]
 
-    def send_mail(self):
+    def send_mail(self, attach_file):
         ''' Send mail '''
         data = self.cleaned_data
         try:
@@ -101,7 +102,12 @@ class QuoteForm(forms.ModelForm):
             from_email = settings.WORKING_EMAIL
             to_email = settings.WORKING_EMAIL
 
-            send_mail(subject, message, from_email, [to_email], fail_silently=False)
+            sent_email = EmailMultiAlternatives(subject, message, from_email, [to_email])
+
+            if attach_file:
+                sent_email.attach(attach_file.name, attach_file.read(), attach_file.content_type)
+
+            sent_email.send()
 
         except Exception as e:
             logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))

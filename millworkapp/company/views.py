@@ -33,11 +33,13 @@ class AskQuoteFormView(View):
     def post(self, request):
         ''' Handle post  '''
 
-        form = QuoteForm(request.POST)
-
+        form = QuoteForm(request.POST, request.FILES)
         if form.is_valid():
             quote = form.save()
-            form.send_mail()
+
+            attach_file = request.FILES.get("file", False)
+
+            form.send_mail(attach_file)
             messages.success(request, "Successful ask quote!")
             return redirect('home')
         else:
