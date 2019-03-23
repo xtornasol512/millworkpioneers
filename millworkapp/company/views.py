@@ -22,7 +22,7 @@ class ContactFormView(View):
             return redirect('home')
 
         else:
-            messages.success(request, "We found an error on the form, please fill up again and resend it")
+            messages.error(request, "We found an error on the form, please fill up again and resend it")
             return redirect('contact')
 
 
