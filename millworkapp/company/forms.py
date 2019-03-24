@@ -16,7 +16,7 @@ class ContactForm(forms.Form):
     email = forms.EmailField(required=True)
     phone = forms.CharField(max_length=20, required=False)
     message = forms.CharField(widget=forms.Textarea, required=False)
-    captcha = ReCaptchaField(widget=ReCaptchaV3)
+    captcha = ReCaptchaField(widget=ReCaptchaV3())
 
     def send_mail(self):
         ''' Send emails '''
