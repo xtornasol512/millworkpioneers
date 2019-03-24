@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 
 from gallery.models import Project, Service
 from company.models import Client
+from company.forms import ContactForm
 from .models import (
     AboutPage,
     ContactPage,
@@ -28,10 +29,12 @@ def about(request):
 def contact(request):
     ''' contact View'''
     contact_page = ContactPage.objects.first()
+    contact_form = ContactForm()
     context = {
         "contact_page": contact_page,
+        "form": contact_form
     }
-    return render(request, 'website/contact.html')
+    return render(request, 'website/contact.html', context)
 
 
 
