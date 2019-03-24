@@ -22,6 +22,7 @@ def about(request):
     context = {
         'client_members': client_members,
         "about_page": about_page,
+
     }
     return render(request, 'website/about.html', context)
 
@@ -32,7 +33,8 @@ def contact(request):
     contact_form = ContactForm()
     context = {
         "contact_page": contact_page,
-        "form": contact_form
+        "form": contact_form,
+        "recaptcha_action": "contact_page",
     }
     return render(request, 'website/contact.html', context)
 
