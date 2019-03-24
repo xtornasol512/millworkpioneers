@@ -3,6 +3,9 @@ from django import forms
 from django.conf import settings
 from django.core.mail import send_mail, EmailMultiAlternatives
 
+from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV3
+
 from core.utils import logger
 from .models import Quote
 
@@ -13,6 +16,7 @@ class ContactForm(forms.Form):
     email = forms.EmailField(required=True)
     phone = forms.CharField(max_length=20, required=False)
     message = forms.CharField(widget=forms.Textarea, required=False)
+    captcha = ReCaptchaField(widget=ReCaptchaV3)
 
     def send_mail(self):
         ''' Send emails '''
@@ -66,6 +70,7 @@ class QuoteForm(forms.ModelForm):
     start_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS)
     bid_due = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS)
     file = forms.FileField(required=False)
+    captcha = ReCaptchaField(widget=ReCaptchaV3)
 
     class Meta:
         model = Quote
@@ -151,6 +156,7 @@ class CareerForm(forms.Form):
     finish_carpenter = forms.ChoiceField(choices=FINISH_CARPENTER_CHOICES)
     years_of_experience = forms.CharField(max_length=20, required=False)
     file = forms.FileField(required=False)
+    captcha = ReCaptchaField(widget=ReCaptchaV3)
 
     def send_mail(self, attach_file):
         ''' Custom send mail for career form  '''
