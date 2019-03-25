@@ -37,19 +37,27 @@
   <!-- Logos -->
   <section class="container-fluid">
     <div class="row">
-      <div class="col align-self-center">
-        <p class="text-center"><img class="img-fluid" src="{% static "logos/01_wide.png" %}" alt="National Minority Suplier Logo"></p>
-      </div>
+      {% if header_logos %}
+        {% for photo in header_logos.all %}
+          <div class="col align-self-center">
+            <p class="text-center"><img class="img-fluid" src="{{ photo.picture.url }}" alt="{{ photo.description }}"></p>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="col align-self-center">
+          <p class="text-center"><img class="img-fluid" src="{% static "logos/01_wide.png" %}" alt="National Minority Suplier Logo"></p>
+        </div>
+        <div class="col align-self-center">
+          <p class="text-center"><img class="img-fluid" src="{% static "logos/03_wide.png" %}" alt="Metropolitan Water District"></p>
+        </div>
+        <div class="col align-self-center">
+          <p class="text-center"><img class="img-fluid" src="{% static "logos/02_wide.png" %}" alt="BBB Acredited Bussiness"></p>
+        </div>
+        <div class="col align-self-center">
+          <p class="text-center"><img class="img-fluid" src="{% static "logos/04_wide.png" %}" alt="DIR"></p>
+        </div>
+      {% endif %}
 
-      <div class="col align-self-center">
-        <p class="text-center"><img class="img-fluid" src="{% static "logos/03_wide.png" %}" alt="Metropolitan Water District"></p>
-      </div>
-      <div class="col align-self-center">
-        <p class="text-center"><img class="img-fluid" src="{% static "logos/02_wide.png" %}" alt="BBB Acredited Bussiness"></p>
-      </div>
-      <div class="col align-self-center">
-        <p class="text-center"><img class="img-fluid" src="{% static "logos/04_wide.png" %}" alt="DIR"></p>
-      </div>
     </div>
   </section>
 
