@@ -63,7 +63,7 @@ class Quote(Timestampable, models.Model):
     phone = models.CharField("Phone", max_length=50, blank=True, default="")
     company = models.CharField("Company name", max_length=255, default="")
     project = models.CharField("Project name", max_length=255, blank=True, default="")
-    bid_due = models.DateField("Estimated start date", default=datetime.today)
+    bid_due = models.DateField("Bid due date", default=datetime.today)
     start_date = models.DateField("Estimated start date", default=datetime.today)
     PREVAILING_OPTIONS = (
         ("YES", 'YES'),
@@ -80,8 +80,3 @@ class Quote(Timestampable, models.Model):
     def __str__(self):
         ''' Display name to object '''
         return self.name
-
-    def clean_start_date(self, value):
-        ''' Custom validate start date field '''
-        print("[custom validation field ] Value: {}".format(value))
-
