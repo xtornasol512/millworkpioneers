@@ -10,5 +10,5 @@ if [ $LOAD_FIXTURES == True ]; then
     python millworkapp/manage.py loaddata millworkapp/fixtures/website.json
     echo "=> END Post compile scripts!"
 else
-    echo "=> Automigrate is False!"
+    echo "=> Load Fixtures is False!"
 fi
