@@ -9,6 +9,7 @@ from .models import (
     GalleryPage,
     ProjectsPage,
     HomePhoto,
+    HomeLogoHeader
 )
 
 class PhotoPageInline(ImageRenderAdmin, admin.StackedInline):
@@ -16,9 +17,14 @@ class PhotoPageInline(ImageRenderAdmin, admin.StackedInline):
     extra = 1
 
 
+class LogoHeaderInline(ImageRenderAdmin, admin.StackedInline):
+    model = HomeLogoHeader
+    extra = 1
+
+
 class HomePageAdmin(ImageRenderAdmin, admin.ModelAdmin):
     '''Custom Model Admin '''
-    inlines = [PhotoPageInline, ]
+    inlines = [PhotoPageInline, LogoHeaderInline, ]
 
 
 class ContactPageAdmin(ImageRenderAdmin, admin.ModelAdmin):
