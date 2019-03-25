@@ -4,9 +4,9 @@
 
 ### Technologies
 
-- Django 1.11 It rocks!
-- Python 3.6.6 yeah!
-- PostgreSQL 10
+- Django 1.11+ It rocks!
+- Python 3.6+ yeah!
+- PostgreSQL 10+
 - ColorLib Theme
 - Vagrant for development
 
