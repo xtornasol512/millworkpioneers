@@ -40,7 +40,7 @@
       {% if header_logos %}
         {% for photo in header_logos.all %}
           <div class="col align-self-center">
-            <p class="text-center"><img class="img-fluid" src="{{ photo.picture.url }}" alt="{{ photo.description }}"></p>
+            <p class="text-center"><a href="{{ photo.site_url }}" title="Go to {{ photo.title }}"><img class="img-fluid" src="{{ photo.picture.url }}" alt="{{ photo.description }}"></a></p>
           </div>
         {% endfor %}
       {% else %}
