@@ -61,11 +61,32 @@ class HomePhoto(Timestampable, models.Model):
     title = models.CharField("Photo title", max_length=255, default="")
     description = models.TextField("Short description", blank=True, default="")
     picture = models.ImageField(upload_to='home_photos')
-    page = models.ForeignKey("website.HomePage", models.SET_NULL, blank=True, null=True, related_name='page_photos', help_text='Select Home Page' )
+    page = models.ForeignKey("website.HomePage",
+            models.SET_NULL, blank=True, null=True, related_name='page_photos', help_text='Select Home Page' )
 
 
     class Meta:
         verbose_name_plural = "Home Website Photos"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        ''' Return string data '''
+        return self.title
+
+
+class HomeLogoHeader(Timestampable, models.Model):
+    ''' Gallery Header Page on Landing '''
+    title = models.CharField("Photo title", max_length=255, default="")
+    description = models.TextField("Short description", default="", help_text="This help on SEO, use a brief description of logo")
+    picture = models.ImageField(upload_to='home_photos_header', help_text="Must have to be edited before, 900x506 pixeles! For better quality")
+    page = models.ForeignKey("website.HomePage",
+            models.SET_NULL, blank=True, null=True, related_name='page_header_photos', help_text='Select Home Page')
+    is_display_on_website = models.BooleanField("Will display on site?", default=True, help_text='Select "Yes" to display on site')
+    site_url = models.URLField("Site url", blank=True, default="#")
+
+
+    class Meta:
+        verbose_name_plural = "Home Website Header Logos"
         ordering = ['-created_at']
 
     def __str__(self):
