@@ -1,7 +1,7 @@
 # Main Requirements
 
 # Django Apps
-Django==1.11.20
+Django==1.11.29
 django-jet==1.0.7
 
 # Heroku apps
