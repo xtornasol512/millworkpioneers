@@ -1,7 +1,7 @@
 # Main Requirements
 
 # Django Apps
-Django==1.11.20
+Django==1.11.29
 django-jet==1.0.7
 
 # Heroku apps
@@ -16,7 +16,7 @@ django-storages==1.7
 django-amazon-ses==2.0.0
 
 # Recaptcha
-django-recaptcha==2.0.2
+django-recaptcha==2.0.6
 
 # ImageSupport
 Pillow==5.2.0
