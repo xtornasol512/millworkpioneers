@@ -10,6 +10,7 @@
 config/
 tmp/
 static-site/
+.venv/
 
 
 # PHP and python is not posible! sqlite either!
