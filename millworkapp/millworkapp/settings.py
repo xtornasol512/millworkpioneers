@@ -12,22 +12,16 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import ast
-import django_heroku
+import dj_database_url
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-# SET By django heroku
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = ast.literal_eval(os.environ['DEBUG_STATE'])
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Compact Django Jet Menu
 JET_SIDE_MENU_COMPACT = True
@@ -83,7 +77,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'gunicorn',
     'storages',
     'imagekit',
     'captcha',
@@ -94,6 +88,7 @@ RECAPTCHA_PRIVATE_KEY = os.environ["RECAPTCHA_PRIVATE_KEY"]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -145,7 +140,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-DATABASES = {}
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES={'default': db_from_env }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -165,6 +161,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
@@ -173,5 +170,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'statics'),
 ]
-
-django_heroku.settings(locals())
