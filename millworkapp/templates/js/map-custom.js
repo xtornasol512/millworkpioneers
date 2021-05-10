@@ -15,7 +15,7 @@
             img_pin = '/static/brand/millwork_logo_map.png';
 
             if (data_map_x == null || data_map_y == null) {
-                data_map_x = {{ contact_page.map_latitud };
+                data_map_x = {{ contact_page.map_latitud }};
                 data_map_y = {{ contact_page.map_longitude }};
             }
             if (scrollwhell == null) {
