@@ -104,7 +104,7 @@
   {# {% include "components/events.html" %} #}
   {% include "components/request_quote.html" %}
   {# {% include "components/reviews.html" %} #}
-  {% include "components/video.html" %}
+  {% include "components/video.html" with video_id=company.get_video_id %}
   {#  Uncomment if necesary {% include "components/in_progress_projects.html" %} #}
   {% include "components/ask_mail.html" %}
 

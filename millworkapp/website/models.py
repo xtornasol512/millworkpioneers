@@ -1,7 +1,7 @@
 from django.db import models
 
 from core.models import WebsiteModelPage
-from core.behaviors import Timestampable
+from core.behaviors import Timestampable, PlayeableVideo
 
 
 class HomePage(Timestampable, models.Model):
@@ -27,10 +27,9 @@ class ContactPage(Timestampable, WebsiteModelPage, models.Model):
         verbose_name_plural = "Contact Page"
 
 
-class AboutPage(Timestampable, WebsiteModelPage, models.Model):
+class AboutPage(PlayeableVideo, Timestampable, WebsiteModelPage, models.Model):
     ''' Page Model '''
     title = models.CharField("Page title",blank=True, max_length=255, default="About Page")
-
     class Meta:
         verbose_name_plural = "About Page"
 
