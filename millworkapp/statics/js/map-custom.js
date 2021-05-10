@@ -15,8 +15,8 @@
             img_pin = '/static/brand/millwork_logo_map.png';
 
             if (data_map_x == null || data_map_y == null) {
-                data_map_x = 33.8051269;
-                data_map_y = -117.9041834;
+                data_map_x = {{ contact_page.map_latitud };
+                data_map_y = {{ contact_page.map_longitude }};
             }
             if (scrollwhell == null) {
                 scrollwhell = 0;
@@ -202,9 +202,8 @@
                 map_zoom = 14;
 
             var locations = [
-                ['<div class="infobox"><h4>Millwork Pioneers</h4><p>1757 S. Claudina Way Anaheim, ' +
-                ' <br>CA 92804</p></div>'
-                    , latitude, longitude, 2]
+                ['<div class="infobox"><h4>Millwork Pioneers</h4><p>{{ contact_page.map_address }}</p></div>',
+                 latitude, longitude, 2]
             ];
 
             if (selector_map !== undefined) {

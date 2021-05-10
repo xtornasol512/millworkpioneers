@@ -19,6 +19,9 @@ class HomePage(Timestampable, models.Model):
 class ContactPage(Timestampable, WebsiteModelPage, models.Model):
     ''' Page Model '''
     title = models.CharField("Page title",blank=True, max_length=255, default="Contact Page")
+    map_latitude = models.CharField("Latitude Coordinates", max_length=50, blank=True, default="33.8080843", help_text='Use google url coordinates')
+    map_longitude = models.CharField("Longitude Coordinates", max_length=50, blank=True, default="-118.0604532", help_text='Use google url coordinates')
+    map_address = models.CharField("Map Address", max_length=255, blank=True, default="MillworkPioneers Address")
 
     class Meta:
         verbose_name_plural = "Contact Page"

@@ -146,6 +146,8 @@
 {% endblock content %}
 {% block jsblock %}
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsvW6Mp7aXvspHeqqwasEggeDVtzyMjkM"></script>
-  <script src="{% static "js/map-custom.js" %}"></script>
+  <script type="text/javascript">
+    {% include "js/map-custom.js" %}
+  </script>
 {% endblock jsblock %}
 
