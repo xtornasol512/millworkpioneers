@@ -22,9 +22,10 @@ class ContactFormView(View):
             return redirect('home')
 
         else:
-            messages.success(request, "We found an error on the form, please fill up again and resend it")
+            messages.success(
+                request,
+                "We found an error on the form, please fill up again and resend it")
             return redirect('contact')
-
 
 
 class AskQuoteFormView(View):
@@ -36,15 +37,16 @@ class AskQuoteFormView(View):
         form = QuoteForm(request.POST, request.FILES)
         if form.is_valid():
             quote = form.save()
-
             attach_file = request.FILES.get("file", False)
-
             form.send_mail(attach_file)
+            logger.info(F"[AskQuote Form Success]: {quote}")
             messages.success(request, "Successful ask quote!")
             return redirect('home')
         else:
-            logger.error(F"[AshQuote ERROR form]: {forms.errors}")
-            messages.error(request, "We found some errors on the form, please fill up again and resend it")
+            logger.error(F"[AskQuote ERROR form]: {form.errors}")
+            messages.error(
+                request,
+                "We found some errors on the form, please fill up again and resend it")
             return redirect('home')
 
 
@@ -63,7 +65,6 @@ class AskMailFormView(View):
             logger.error(F"[AshQuote ERROR form]: {form.errors}")
             messages.error(request, "Sorry wrong email, please try again")
             return redirect('home')
-
 
 
 class CareersView(View):
@@ -88,15 +89,18 @@ class CareersView(View):
         if form.is_valid():
             attach_file = request.FILES.get("file", False)
             form.send_mail(attach_file)
-            messages.success(request, "Thank you for your application! We'll contact you soon!")
+            messages.success(
+                request,
+                "Thank you for your application! We'll contact you soon!")
             return redirect('home')
         else:
             logger.error(F"FOUND ERRORS ON CAREER FORM: {form.errors}")
-            messages.error(request, "We found errors on form, please check them and try again!")
+            messages.error(
+                request,
+                "We found errors on form, please check them and try again!")
             messages.warning(request, F"{form.errors}")
             return render(request, self.template, {
                     "careers_page": self.get_page_settings(),
                     "form": CareerForm()
                 }
             )
-

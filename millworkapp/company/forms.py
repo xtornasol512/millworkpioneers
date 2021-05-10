@@ -137,10 +137,9 @@ OFFICE_CHOICES = (
     ('BASIC APPLICATION', 'Basic Application'),
 )
 
-FINISH_CARPENTER_CHOICES =(
+FINISH_CARPENTER_CHOICES = (
     ('YES', 'YES'),
     ('NO', 'NO'),
-
 )
 
 
@@ -149,7 +148,7 @@ class CareerForm(forms.Form):
     name = forms.CharField(max_length=255)
     email = forms.EmailField(required=True)
     phone = forms.CharField(max_length=20, required=False)
-    message = forms.CharField(max_length=300,widget=forms.Textarea, required=False)
+    message = forms.CharField(max_length=300, widget=forms.Textarea, required=False)
     installation = forms.ChoiceField(choices=INSTALLATION_CHOICES)
     union_ubc_number = forms.CharField(max_length=100, required=False)
     office = forms.ChoiceField(choices=OFFICE_CHOICES)
@@ -164,10 +163,11 @@ class CareerForm(forms.Form):
         try:
             email = data["email"]
             name = data["name"]
-            subject = F"[MillworkPioneers Website] Career application form, email:{data['email']}, name: {data['name']}"
+            subject = ("[MillworkPioneers Website] Career application form, "
+                       F"email:{email}, name: {name}")
             message = F"""Somebody send an application from website and below is the info:
-                        Name: {data['name']}
-                        Email: {data['email']}
+                        Name: {name}
+                        Email: {email}
                         Phone: {data.get('phone', 'N/A')}
                         Installation: {data['installation']}
                         Union or UBC number: {data.get('union_ubc_number', 'N/A')}
@@ -190,14 +190,9 @@ class CareerForm(forms.Form):
                 sent_email.attach(attach_file.name, attach_file.read(), attach_file.content_type)
 
             sent_email.send()
-            import code; code.interact(local=locals())
 
         except Exception as e:
-            logger.error("[Send email ERROR]:  {}, type:{}".format(e, type(e)))
+            logger.error("[Send email ERROR]: {}, type:{}".format(e, type(e)))
 
         else:
-            logger.info("Success receive email:{}".format(email))
-
-
-
-
+            logger.info("Success receive email: {}".format(email))

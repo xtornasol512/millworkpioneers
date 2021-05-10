@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
+from django.shortcuts import redirect
+from django.views.generic import ListView
 
 from .models import WoodworkPage
 from gallery.models import Project
@@ -24,4 +24,3 @@ class WoodworkView(ListView):
 def woodwork_redirect(response):
     ''' A redirect to woodwork site'''
     return redirect('woodwork')
-
