@@ -4,11 +4,19 @@
 
 {% block content %}
   <!-- Title Page -->
-  <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static "components/contact_us.jpg" %});">
-    <h2 class="tit6 t-center">
-      Contact Us
-    </h2>
-  </section>
+  {% if contact_page.picture %}
+    <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({{ contact_page.picture.url }});">
+      <h2 class="tit6 t-center">
+        Contact Us
+      </h2>
+    </section>
+  {% else %}
+    <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static "components/contact_us.jpg" %});">
+      <h2 class="tit6 t-center">
+        Contact Us
+      </h2>
+    </section>
+  {% endif %}
   <!-- Contact form -->
   <section class="section-contact bg1-pattern p-t-90 p-b-113">
     <!-- Map -->
