@@ -2,6 +2,15 @@
 {% load static %}
 {% block title %}Welcome{% endblock title %}
 
+{% block cssblock %}
+  <style type="text/css">
+    .custom_size {
+        max-width: 800px;
+        max-height: 400px;
+    }
+  </style>
+{% endblock cssblock %}
+
 {% block content %}
 
   <!-- Slide1 -->
@@ -65,7 +74,7 @@
   <section class="section-welcome bg1-pattern p-t-120 p-b-105">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 p-t-45 p-b-30">
+        <div class="col-md-12 p-t-45 p-b-30">
           <div class="wrap-text-welcome t-center">
             <span class="tit2 t-center">
               High-Quality Millwork Installation
@@ -89,8 +98,8 @@
           </div>
         </div>
 
-        <div class="col-md-6 p-b-30">
-          <div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+        <div class="col-md-12 p-b-30">
+          <div class="wrap-pic-welcome custom_size bo-rad-10 hov-img-zoom m-l-r-auto">
             <img src="{% static "components/page/welcome.jpg" %}" alt="Welcome Image">
           </div>
         </div>
