@@ -98,20 +98,13 @@
     </div>
   </section>
 
-  {#  Uncomment if necesary {% include "components/completed_projects.html" %} #}
   {% include "components/services.html" %}
-  {# Remove if dont use it#}
-  {# {% include "components/events.html" %} #}
   {% include "components/request_quote.html" %}
-  {# {% include "components/reviews.html" %} #}
   {% include "components/video.html" with video_id=company.get_video_id %}
-  {#  Uncomment if necesary {% include "components/in_progress_projects.html" %} #}
-  {% include "components/ask_mail.html" %}
 
 {% endblock content %}
 {% block footer %}
 {% endblock footer %}
-
 
 {% block jsblock %}
 {% endblock jsblock %}
