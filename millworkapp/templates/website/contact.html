@@ -84,68 +84,6 @@
         </div>
       </form>
 
-      <div class="row p-t-135">
-        <div class="col-sm-8 col-md-4 col-lg-4 m-l-r-auto p-t-30">
-          <div class="dis-flex m-l-23">
-            <div class="p-r-40 p-t-6">
-              <img src="{% static "images/icons/map-icon.png" %}" alt="IMG-ICON">
-            </div>
-
-            <div class="flex-col-l">
-              <span class="txt5 p-b-10">
-                Location
-              </span>
-              <span class="txt23 size38 p-b-10">
-                <a title="California Location for Millwork Pioneers" href="{{ company.gmaps }}" target="_blank">{{ company.address }}</a>
-              </span>
-              <span class="txt23 size38">
-                <a title="Nevada Location for Millwork Pioneers" href="https://goo.gl/maps/2vBgZ9wtQbcq9rGm7" target="_blank">1600 Raiders Way Suite 110, Henderson, NV 89044</a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-8 col-md-3 col-lg-4 m-l-r-auto p-t-30">
-          <div class="dis-flex m-l-23">
-            <div class="p-r-40 p-t-6">
-              <img src="{% static "images/icons/phone-icon.png" %}" alt="IMG-ICON">
-            </div>
-
-
-            <div class="flex-col-l">
-              <span class="txt5 p-b-10">
-                Call Us
-              </span>
-
-              <span class="txt23 size38 p-b-10">
-                <span title="California">CA</span>, {{ company.phone }}
-              </span>
-              <span class="txt23 size38">
-                <span title="Nevada">NV</span>, (702) 991-1220
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-8 col-md-5 col-lg-4 m-l-r-auto p-t-30">
-          <div class="dis-flex m-l-23">
-            <div class="p-r-40 p-t-6">
-              <img src="{% static "images/icons/clock-icon.png" %}" alt="IMG-ICON">
-            </div>
-
-
-            <div class="flex-col-l">
-              <span class="txt5 p-b-10">
-                Opening Hours
-              </span>
-
-              <span class="txt23 size38">
-                {{ company.hours_operation }}<br/>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 {% endblock content %}
