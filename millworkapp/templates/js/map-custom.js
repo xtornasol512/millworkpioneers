@@ -202,7 +202,9 @@
                 map_zoom = 14;
 
             var locations = [
-                ['<div class="infobox"><h4>Millwork Pioneers</h4><p>{{ contact_page.map_address }}</p></div>',
+                ['<div class="infobox"><h4>Millwork Pioneers</h4>' +
+                 '<p><a href="{{ company.gmaps }}" >{{ contact_page.map_address }}</a></p>' +
+                 '</div>',
                  latitude, longitude, 2]
             ];
 
