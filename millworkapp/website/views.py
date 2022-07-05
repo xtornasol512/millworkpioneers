@@ -11,9 +11,11 @@ from .models import (
     ProjectsPage,
 )
 
+
 def favicon(request):
     ''' Fix favicon '''
     return redirect(settings.STATIC_URL + "brand/icons/favicon-32x32.png", permanent=True)
+
 
 def about(request):
     ''' About View'''
@@ -39,7 +41,6 @@ def contact(request):
     return render(request, 'website/contact.html', context)
 
 
-
 class ProjectsView(ListView):
     ''' Custom View '''
     model = Project
@@ -55,6 +56,7 @@ class ProjectsView(ListView):
         })
         return context
 
+
 class ProjectsDetail(DetailView):
     ''' Custom View '''
     template_name = 'website/project_detail.html'
@@ -68,4 +70,3 @@ class ServiceGallery(DetailView):
     slug_name = 'slug'
     model = Service
     context_object_name = 'service'
-

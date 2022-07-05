@@ -1,12 +1,12 @@
 from django.shortcuts import render
 
-from gallery.models import Review, Project, Service
+from gallery.models import Review, Service
 from website.models import HomePage
 from company.forms import QuoteForm
 
+
 def home(request):
     ''' Home simple view '''
-    TOTAL_PROJECTS = 3
     REVIEW_PROJECTS = 6
 
     reviews = Review.objects.all()[:REVIEW_PROJECTS]

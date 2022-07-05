@@ -19,7 +19,7 @@ class PhotoPageInline(ImageRenderAdmin, admin.StackedInline):
 
 class LogoHeaderInline(ImageRenderAdmin, admin.StackedInline):
     model = HomeLogoHeader
-    extra = 1
+    extra = 0
 
 
 class HomePageAdmin(ImageRenderAdmin, admin.ModelAdmin):

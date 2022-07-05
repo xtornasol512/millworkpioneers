@@ -12,14 +12,20 @@
         <ul class="m-b-70">
           <li class="txt14 m-b-14">
             <i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
-            <a title="Google Maps Location for Millwork Pioneers" href="{{ company.gmaps }}" target="_blank">{{ company.address }}</a>
+            <a title="Alamitos, CA,  Millwork Pioneers" href="{{ company.gmaps }}" target="_blank">{{ company.address }}</a>
           </li>
-
           <li class="txt14 m-b-14">
             <i class="fa fa-phone fs-16 dis-inline-block size19" aria-hidden="true"></i>
-            {{ company.phone }}
+            CA, {{ company.phone }}
           </li>
-
+          <li class="txt14 m-b-14">
+            <i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
+            <a title="Henderson, NV, Millwork Pioneers" href="https://goo.gl/maps/2vBgZ9wtQbcq9rGm7" target="_blank">1600 Raiders Way Suite 110, Henderson, NV 89052</a>
+          </li>
+          <li class="txt14 m-b-14">
+            <i class="fa fa-phone fs-16 dis-inline-block size19" aria-hidden="true"></i>
+            NV, (702) 991-1220
+          </li>
           <li class="txt14 m-b-14">
             <i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
             {{ company.email }}
@@ -89,12 +95,12 @@
       <div class="flex-sb-m flex-w p-t-22 p-b-22">
         <div class="p-t-5 p-b-5">
           <a href="{{ company.linkedin }}" class="fs-15 c-white"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-          <a href="{{ company.facebook }}" class="fs-15 c-white"><i class="fa fa-facebook m-l-18" aria-hidden="true"></i></a>
+          <a href="{{ company.instagram }}" class="fs-15 c-white"><i class="fa fa-instagram m-l-18" aria-hidden="true"></i></a>
           <a href="{{ company.youtube }}" class="fs-15 c-white"><i class="fa fa-youtube m-l-18" aria-hidden="true"></i></a>
         </div>
 
         <div class="txt17 p-r-20 p-t-5 p-b-5">
-          MillworkPioneer Copyright &copy; 2018 All rights reserved   |  Made with <i class="fa fa-heart"></i> by <a href="https://www.linkedin.com/in/xtornasol512/" target="_blank">Jesus A. G.</a>
+          MillworkPioneer Copyright &copy; {% now "Y" %} All rights reserved   |  Made with <i class="fa fa-heart"></i> by <a href="https://www.linkedin.com/in/xtornasol512/" target="_blank">Jesus A. G.</a>
         </div>
       </div>
     </div>

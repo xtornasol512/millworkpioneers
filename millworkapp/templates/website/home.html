@@ -65,7 +65,7 @@
   <section class="section-welcome bg1-pattern p-t-120 p-b-105">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 p-t-45 p-b-30">
+        <div class="col-md-12 p-t-45 p-b-30">
           <div class="wrap-text-welcome t-center">
             <span class="tit2 t-center">
               High-Quality Millwork Installation
@@ -76,7 +76,7 @@
             </h3>
 
             <p class="t-center m-b-22 size3 m-l-r-auto">
-             Complete the appearance of your property with skilled commercial millwork installation by Millwork Pioneers in Anaheim, California.
+             Complete the appearance of your property with skilled commercial millwork installation by Millwork Pioneers.
             </p>
             <p class="t-center m-b-22 size3 m-l-r-auto">
               We are a millwork contractor specializing in all types of millwork installation.
@@ -89,29 +89,22 @@
           </div>
         </div>
 
-        <div class="col-md-6 p-b-30">
-          <div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-            <img src="{% static "components/page/welcome.jpg" %}" alt="Welcome Image">
+        <div class="col-md-12 p-b-30">
+          <div class="wrap-pic-welcome m-l-r-auto">
+            <img class="img-fluid bo-rad-10" src="https://millworkpionners-dev.s3-us-west-2.amazonaws.com/media/statics/WelcomePhoto.jpg" alt="Welcome Image">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  {#  Uncomment if necesary {% include "components/completed_projects.html" %} #}
   {% include "components/services.html" %}
-  {# Remove if dont use it#}
-  {# {% include "components/events.html" %} #}
   {% include "components/request_quote.html" %}
-  {% include "components/reviews.html" %}
-  {% include "components/video.html" %}
-  {#  Uncomment if necesary {% include "components/in_progress_projects.html" %} #}
-  {% include "components/ask_mail.html" %}
+  {% include "components/video.html" with video_id=company.get_video_id %}
 
 {% endblock content %}
 {% block footer %}
 {% endblock footer %}
-
 
 {% block jsblock %}
 {% endblock jsblock %}

@@ -3,8 +3,10 @@ from django.contrib import admin
 from core.admin import ImageRenderAdmin
 from .models import Company, Client, Quote
 
+
 class CompanyAdmin(admin.ModelAdmin):
     pass
+
 
 class ClientAdmin(ImageRenderAdmin, admin.ModelAdmin):
     ''' Custom Client  admin '''
@@ -13,6 +15,7 @@ class ClientAdmin(ImageRenderAdmin, admin.ModelAdmin):
         "website",
         "headline",
     ]
+
 
 class QuoteAdmin(admin.ModelAdmin):
     ''' Custom Quote admin '''
@@ -24,7 +27,7 @@ class QuoteAdmin(admin.ModelAdmin):
         'company',
         'project',
         'start_date',
-        'created_at'
+        'created_at',
     ]
 
 
