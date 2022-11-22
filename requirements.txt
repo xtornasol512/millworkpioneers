@@ -23,6 +23,6 @@ django-amazon-ses==2.0.0
 django-recaptcha==2.0.6
 
 # ImageSupport
-Pillow==8.2.0
+Pillow==9.3.0
 django-imagekit==4.0.2 #
 django-cleanup==2.1.0 # Clean post delete files
